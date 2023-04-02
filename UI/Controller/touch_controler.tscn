@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://vfium5r5i4lm"]
+
+[ext_resource type="Script" path="res://addons/virtual_joystick/scripts/virtual_joystick.gd" id="1_kh4wf"]
+
+[node name="Touch_controler" type="Node2D"]
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="."]
+position = Vector2(14, 12)
+
+[node name="virtual_joystick" type="Node2D" parent="."]
+position = Vector2(119, 516)
+scale = Vector2(1.69656, 1.69656)
+script = ExtResource("1_kh4wf")
+
+[node name="virtual_joystick2" type="Node2D" parent="."]
+position = Vector2(1008, 516)
+scale = Vector2(1.69656, 1.69656)
+script = ExtResource("1_kh4wf")
