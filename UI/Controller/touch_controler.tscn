@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://vfium5r5i4lm"]
+
+[node name="Touch_controler" type="Node2D"]
