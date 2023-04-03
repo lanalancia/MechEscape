@@ -1,8 +1,26 @@
-[gd_scene load_steps=2 format=3 uid="uid://tsls61t1x7c4"]
+[gd_scene load_steps=6 format=3 uid="uid://tsls61t1x7c4"]
 
+[ext_resource type="Script" path="res://main_level.gd" id="1_6i1ro"]
 [ext_resource type="PackedScene" uid="uid://vfium5r5i4lm" path="res://UI/Controller/touch_controler.tscn" id="1_apbtu"]
 
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_aqj8v"]
+
+[sub_resource type="Sky" id="Sky_c0br3"]
+sky_material = SubResource("ProceduralSkyMaterial_aqj8v")
+
+[sub_resource type="Environment" id="Environment_vcfff"]
+background_mode = 2
+sky = SubResource("Sky_c0br3")
+
 [node name="Main_level" type="Node3D"]
+script = ExtResource("1_6i1ro")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.22253)
+current = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_vcfff")
 
 [node name="Node2D" type="Node2D" parent="."]
 
