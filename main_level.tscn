@@ -16,12 +16,16 @@ sky = SubResource("Sky_c0br3")
 script = ExtResource("1_6i1ro")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.22253)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.70171, 4.22253)
 current = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_vcfff")
 
-[node name="Node2D" type="Node2D" parent="."]
+[node name="UI" type="Node2D" parent="."]
 
-[node name="Touch_controler" parent="Node2D" instance=ExtResource("1_apbtu")]
+[node name="Touch_controler" parent="UI" instance=ExtResource("1_apbtu")]
+
+[node name="chunks" type="Node3D" parent="."]
+
+[node name="PLAYER" type="Node3D" parent="."]
