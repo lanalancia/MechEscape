@@ -1,15 +1,19 @@
 extends Node3D
 
 @export var PLAYER_SPAWN : NodePath = "."
-# Called when the node enters the scene tree for the first time.
+@export var GATES : NodePath
+
 func _ready():
 	print("Loading: ", name)
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
 
 func get_player_spawn():
 	return get_node(PLAYER_SPAWN)
+
+func lock_backtrack():
+	
+	if GATES != ^"":
+		for n in get_parent().get_children():
+			if n != self:
+				n.queue_free()
+		get_node(GATES).trigger()
+	pass
