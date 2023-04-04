@@ -22,7 +22,7 @@ PLAYER_SPAWN = NodePath("player_spawn")
 [node name="Geometry" type="Node3D" parent="."]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Geometry"]
-transform = Transform3D(4.38245, 0, 0, 0, 0.197627, 0, 0, 0, 3.71243, 0, 0, 0)
+transform = Transform3D(15.9709, 0, 0, 0, 0.720209, 0, 0, 0, 13.5292, 0.551479, -0.429605, 0.0818969)
 mesh = SubResource("BoxMesh_mafr1")
 skeleton = NodePath("StaticBody3D")
 surface_material_override/0 = SubResource("StandardMaterial3D_rwx18")
@@ -33,7 +33,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_rwx18")
 shape = SubResource("BoxShape3D_vuab1")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="Geometry"]
-transform = Transform3D(0.22656, 0, 0, 0, 1.29317, 0, 0, 0, 0.213001, -0.99141, 0.679618, 0.953623)
+transform = Transform3D(0.825649, 0, 0, 0, 4.71268, 0, 0, 0, 0.776236, -3.0615, 2.04712, 3.55717)
 mesh = SubResource("BoxMesh_mafr1")
 skeleton = NodePath("StaticBody3D")
 surface_material_override/0 = SubResource("StandardMaterial3D_rwx18")
@@ -44,7 +44,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_rwx18")
 shape = SubResource("BoxShape3D_vuab1")
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="Geometry"]
-transform = Transform3D(0.22656, 0, 0, 0, 1.29317, 0, 0, 0, 0.213001, -1.28774, 0.679618, -0.569036)
+transform = Transform3D(0.825649, 0, 0, 0, 4.71268, 0, 0, 0, 0.776236, -4.14141, 2.04712, -1.99183)
 mesh = SubResource("BoxMesh_mafr1")
 skeleton = NodePath("StaticBody3D")
 surface_material_override/0 = SubResource("StandardMaterial3D_rwx18")
@@ -55,7 +55,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_rwx18")
 shape = SubResource("BoxShape3D_vuab1")
 
 [node name="MeshInstance3D4" type="MeshInstance3D" parent="Geometry"]
-transform = Transform3D(0.22656, 0, 0, 0, 1.29317, 0, 0, 0, 0.213001, 1.44493, 0.679618, -0.508472)
+transform = Transform3D(0.825649, 0, 0, 0, 4.71268, 0, 0, 0, 0.776236, 5.81722, 2.04712, -1.77112)
 mesh = SubResource("BoxMesh_mafr1")
 skeleton = NodePath("StaticBody3D")
 surface_material_override/0 = SubResource("StandardMaterial3D_rwx18")
