@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://tsls61t1x7c4"]
+[gd_scene load_steps=11 format=3 uid="uid://tsls61t1x7c4"]
 
 [ext_resource type="Script" path="res://main_level.gd" id="1_6i1ro"]
 [ext_resource type="PackedScene" uid="uid://vfium5r5i4lm" path="res://UI/Controller/touch_controler.tscn" id="1_apbtu"]
@@ -13,6 +13,16 @@ sky_material = SubResource("ProceduralSkyMaterial_aqj8v")
 [sub_resource type="Environment" id="Environment_vcfff"]
 background_mode = 2
 sky = SubResource("Sky_c0br3")
+ambient_light_color = Color(1, 1, 1, 1)
+reflected_light_source = 1
+
+[sub_resource type="BoxMesh" id="BoxMesh_qbcdi"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fxchy"]
+shading_mode = 0
+albedo_color = Color(0.592157, 0.462745, 0.337255, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_64n4w"]
 
 [node name="Main_level" type="Node3D"]
 script = ExtResource("1_6i1ro")
@@ -33,6 +43,10 @@ CAMERA_RAILS = NodePath("../Camera_rails")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.97732, -0.108844, -0.181656, 0.211768, 0.502319, 0.83835, 0, -0.857805, 0.513976, 0, 8.17728, 0)
+visible = false
+light_indirect_energy = 0.0
+light_cull_mask = 4293918721
+editor_only = true
 
 [node name="Camera_rails" type="Node3D" parent="."]
 
@@ -44,3 +58,14 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7, 2, 
 
 [node name="back" type="Marker3D" parent="Camera_rails"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 7)
+
+[node name="floor" type="MeshInstance3D" parent="."]
+transform = Transform3D(37.4584, 0, 0, 0, 0.451, 0, 0, 0, 39.7757, -0.583807, -0.429605, 0.0818969)
+mesh = SubResource("BoxMesh_qbcdi")
+skeleton = NodePath("StaticBody3D")
+surface_material_override/0 = SubResource("StandardMaterial3D_fxchy")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="floor"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floor/StaticBody3D"]
+shape = SubResource("BoxShape3D_64n4w")

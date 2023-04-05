@@ -1,7 +1,94 @@
-[gd_scene load_steps=11 format=3 uid="uid://ctss3q7w3np4k"]
+[gd_scene load_steps=10 format=3 uid="uid://ctss3q7w3np4k"]
 
 [ext_resource type="Script" path="res://chunks/gates/falling_building.gd" id="1_26dkm"]
 [ext_resource type="Material" uid="uid://d3kty78nggpna" path="res://materials/Surfaces/Concrete.tres" id="1_p8wft"]
+
+[sub_resource type="Animation" id="Animation_2ff4t"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StaticBody3D/CollisionShape3D:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("House10:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-13.3587, 5.36711, 1.51314)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("House11:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-12.2907, 21.5614, 1.51314)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("House10:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.00200538, 0.00336044, -0.0628137)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("House11:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.00200538, 0.00336044, -0.0628137)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("explossion:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.612635, 0.612635, 0.612635)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("explossion:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_wbrc3"]
 resource_name = "fall"
@@ -91,93 +178,6 @@ tracks/6/keys = {
 "values": [true, false]
 }
 
-[sub_resource type="Animation" id="Animation_2ff4t"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("StaticBody3D/CollisionShape3D:disabled")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("House10:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-13.3587, 5.36711, 1.51314)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("House11:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-12.2907, 21.5614, 1.51314)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("House10:rotation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0.00200538, 0.00336044, -0.0628137)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("House11:rotation")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0.00200538, 0.00336044, -0.0628137)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("explossion:scale")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0.612635, 0.612635, 0.612635)]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("explossion:visible")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vdtl6"]
 _data = {
 "RESET": SubResource("Animation_2ff4t"),
@@ -188,11 +188,8 @@ _data = {
 size = Vector3(18, 7, 2)
 
 [sub_resource type="BoxMesh" id="BoxMesh_c7sk5"]
-subdivide_width = 16
-subdivide_height = 4
-subdivide_depth = 16
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_8dmmj"]
+lightmap_size_hint = Vector2i(14, 21)
+add_uv2 = true
 
 [sub_resource type="SphereMesh" id="SphereMesh_mj1th"]
 
@@ -216,28 +213,16 @@ shape = SubResource("BoxShape3D_1opxk")
 disabled = true
 
 [node name="House10" type="MeshInstance3D" parent="."]
-transform = Transform3D(5.77626, 1.05717, 0.0122808, -0.363308, 16.8064, -0.00732873, -0.0201394, 0.0301509, 3.6545, -13.3587, 5.36711, 1.51314)
+transform = Transform3D(5.77626, 1.05717, 0.0122808, -0.363308, 16.8064, -0.00732871, -0.0201394, 0.0301509, 3.6545, -13.3587, 5.36711, 1.51314)
 mesh = SubResource("BoxMesh_c7sk5")
-skeleton = NodePath("StaticBody3D")
+skeleton = NodePath("")
 surface_material_override/0 = ExtResource("1_p8wft")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="House10"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="House10/StaticBody3D"]
-transform = Transform3D(1, -2.43745e-10, 2.32831e-10, 1.15847e-10, 1, 2.91038e-11, 2.32831e-10, 0, 1, 0, 0, 0)
-shape = SubResource("BoxShape3D_8dmmj")
 
 [node name="House11" type="MeshInstance3D" parent="."]
-transform = Transform3D(5.77626, 1.05717, 0.0122808, -0.363308, 16.8064, -0.00732873, -0.0201394, 0.0301509, 3.6545, -12.2907, 21.5614, 1.51314)
+transform = Transform3D(5.77626, 1.05717, 0.0122808, -0.363308, 16.8064, -0.00732871, -0.0201394, 0.0301509, 3.6545, -12.2907, 21.5614, 1.51314)
 mesh = SubResource("BoxMesh_c7sk5")
-skeleton = NodePath("StaticBody3D")
+skeleton = NodePath("")
 surface_material_override/0 = ExtResource("1_p8wft")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="House11"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="House11/StaticBody3D"]
-transform = Transform3D(1, -1.26729e-07, 4.65661e-10, 4.44106e-09, 1, 0, 4.65661e-10, 0, 1, 0, 0, 0)
-shape = SubResource("BoxShape3D_8dmmj")
 
 [node name="explossion" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.612635, 0, 0, 0, 0.612635, 0, 0, 0, 0.612635, -14.8889, 12.9107, 1.86585)

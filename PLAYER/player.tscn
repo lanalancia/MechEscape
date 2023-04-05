@@ -1,21 +1,42 @@
-[gd_scene load_steps=9 format=3 uid="uid://cdgmyqcnpbbpx"]
+[gd_scene load_steps=14 format=3 uid="uid://cdgmyqcnpbbpx"]
 
 [ext_resource type="Script" path="res://PLAYER/player.gd" id="1_0akw1"]
+[ext_resource type="LightmapGIData" uid="uid://d2f0n6sqorxop" path="res://PLAYER/player.lmbake" id="2_k4den"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wuh24"]
 radius = 0.608049
 
 [sub_resource type="BoxMesh" id="BoxMesh_7vxak"]
+lightmap_size_hint = Vector2i(14, 21)
+add_uv2 = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_766g6"]
+albedo_color = Color(0.0352941, 0.231373, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cw24b"]
+albedo_color = Color(1, 0.768627, 0, 1)
 
 [sub_resource type="PrismMesh" id="PrismMesh_avyi8"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_1k6la"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_eium3"]
+lightmap_size_hint = Vector2i(14, 21)
+add_uv2 = true
 
 [sub_resource type="PrismMesh" id="PrismMesh_2ao5i"]
+lightmap_size_hint = Vector2i(14, 21)
+add_uv2 = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lf20s"]
+albedo_color = Color(0.121569, 0.0470588, 0.0509804, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_xoabs"]
+lightmap_size_hint = Vector2i(14, 21)
+add_uv2 = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f8qxd"]
+albedo_color = Color(0.121569, 0.0470588, 0.0509804, 1)
 
 [node name="PLAYER" type="CharacterBody3D" groups=["PLAYER"]]
 script = ExtResource("1_0akw1")
@@ -30,59 +51,70 @@ shape = SubResource("CapsuleShape3D_wuh24")
 transform = Transform3D(-0.328224, 1.90317e-08, -1.26996e-08, -3.45569e-09, 0.47738, 0.0793803, 2.84854e-08, 0.277206, -0.136701, 1.14264e-08, 1.07444, 0.168514)
 cast_shadow = 0
 mesh = SubResource("BoxMesh_7vxak")
+surface_material_override/0 = SubResource("StandardMaterial3D_766g6")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="torso"]
 transform = Transform3D(-0.844305, 0, -3.63968e-08, 0, 0.603598, 0, 7.38115e-08, 0, -0.416331, 2.56444e-08, 1.71978, 0.293338)
 cast_shadow = 0
 mesh = SubResource("BoxMesh_7vxak")
+surface_material_override/0 = SubResource("StandardMaterial3D_766g6")
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="torso"]
 transform = Transform3D(-0.27783, -8.78706e-09, -3.27179e-08, 0, 0.206236, -0.182396, 2.42887e-08, -0.100512, -0.37425, -1.40364e-08, 1.80441, -0.160558)
 cast_shadow = 0
 mesh = SubResource("BoxMesh_7vxak")
+surface_material_override/0 = SubResource("StandardMaterial3D_766g6")
 
 [node name="MeshInstance3D10" type="MeshInstance3D" parent="torso"]
 transform = Transform3D(-0.439739, -2.056e-09, -4.19479e-09, 0, 0.0482551, -0.0233852, 3.84432e-08, -0.0235179, -0.0479828, -1.40364e-08, 1.86661, -0.0539977)
 cast_shadow = 0
 mesh = SubResource("BoxMesh_7vxak")
+surface_material_override/0 = SubResource("StandardMaterial3D_cw24b")
 
 [node name="MeshInstance3D11" type="MeshInstance3D" parent="torso"]
 transform = Transform3D(-0.375412, -1.68312e-09, -3.09544e-09, 0, 0.0395036, -0.0172565, 3.28196e-08, -0.0192527, -0.0354077, -1.40364e-08, 1.81997, -0.147994)
 cast_shadow = 0
 mesh = SubResource("BoxMesh_7vxak")
+surface_material_override/0 = SubResource("StandardMaterial3D_cw24b")
 
 [node name="MeshInstance3D4" type="MeshInstance3D" parent="torso"]
 transform = Transform3D(-0.0427633, -8.58689e-10, -3.57554e-08, 0, 0.18501, -0.0217136, 3.73849e-09, -0.00982226, -0.408994, 2.37153e-08, 2.03706, 0.091057)
 cast_shadow = 0
 mesh = SubResource("BoxMesh_7vxak")
+surface_material_override/0 = SubResource("StandardMaterial3D_cw24b")
 
 [node name="MeshInstance3D5" type="MeshInstance3D" parent="torso"]
 transform = Transform3D(-0.0427633, 1.52362e-08, -1.21482e-08, 0, 0.0628586, 0.385276, 3.73849e-09, 0.174282, -0.138959, 3.78543e-08, 1.87934, 0.54229)
 cast_shadow = 0
 mesh = SubResource("BoxMesh_7vxak")
+surface_material_override/0 = SubResource("StandardMaterial3D_cw24b")
 
 [node name="MeshInstance3D6" type="MeshInstance3D" parent="torso"]
 transform = Transform3D(-0.0427633, 1.53946e-08, 1.11293e-08, 0, -0.057587, 0.389282, 3.73849e-09, 0.176094, 0.127305, 3.59809e-08, 1.37385, 0.482501)
 cast_shadow = 0
 mesh = SubResource("BoxMesh_7vxak")
+surface_material_override/0 = SubResource("StandardMaterial3D_cw24b")
 
 [node name="MeshInstance3D7" type="MeshInstance3D" parent="torso"]
 transform = Transform3D(1.27346, 0, 0, 0, 0.256065, 0, 0, 0, 0.359796, 0, 1.9107, 0.308277)
 cast_shadow = 0
 mesh = SubResource("PrismMesh_avyi8")
 skeleton = NodePath("../handr")
+surface_material_override/0 = SubResource("StandardMaterial3D_766g6")
 
 [node name="MeshInstance3D8" type="MeshInstance3D" parent="torso"]
 transform = Transform3D(0.667655, 0.0572967, 0, -0.245649, 0.155728, 0, 0, 0, 0.254034, 0.532548, 1.58205, 0.248811)
 cast_shadow = 0
 mesh = SubResource("BoxMesh_1k6la")
 skeleton = NodePath("../handr")
+surface_material_override/0 = SubResource("StandardMaterial3D_766g6")
 
 [node name="MeshInstance3D9" type="MeshInstance3D" parent="torso"]
 transform = Transform3D(0.659101, -0.0808399, 0, 0.242502, 0.219716, 0, 0, 0, 0.254034, -0.533, 1.582, 0.249)
 cast_shadow = 0
 mesh = SubResource("BoxMesh_1k6la")
 skeleton = NodePath("../handr")
+surface_material_override/0 = SubResource("StandardMaterial3D_766g6")
 
 [node name="handr" type="Node3D" parent="torso"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.884498, 1.43214, 0.248811)
@@ -91,16 +123,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.884498, 1.43214, 0.248811)
 transform = Transform3D(0.0950992, 0, 0, 0, 0.162502, 0, 0, 0, 0.866236, 0, 0, -0.331172)
 cast_shadow = 0
 mesh = SubResource("BoxMesh_eium3")
+surface_material_override/0 = SubResource("StandardMaterial3D_cw24b")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="torso/handr"]
 transform = Transform3D(-6.78354e-09, 3.3565e-08, -0.0433763, 0.153904, -0.0986069, -2.12382e-09, -0.0199286, -0.76152, -1.63686e-09, 0, 0.156028, -0.856003)
 cast_shadow = 0
 mesh = SubResource("PrismMesh_2ao5i")
+surface_material_override/0 = SubResource("StandardMaterial3D_lf20s")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="torso/handr"]
 transform = Transform3D(-8.7369e-10, 3.32854e-08, -0.0433763, 0.153897, 0.0988993, 0, 0.0199877, -0.761482, -1.89604e-09, 0, -0.156, -0.858834)
 cast_shadow = 0
 mesh = SubResource("PrismMesh_2ao5i")
+surface_material_override/0 = SubResource("StandardMaterial3D_lf20s")
 
 [node name="handl" type="Node3D" parent="torso"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.884, 1.432, 0.249)
@@ -109,16 +144,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.884, 1.432, 0.249)
 transform = Transform3D(0.0950992, 0, 0, 0, 0.162502, 0, 0, 0, 0.866236, 0, 0, -0.331172)
 cast_shadow = 0
 mesh = SubResource("BoxMesh_eium3")
+surface_material_override/0 = SubResource("StandardMaterial3D_cw24b")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="torso/handl"]
 transform = Transform3D(-6.78354e-09, 3.3565e-08, -0.0433763, 0.153904, -0.0986069, -2.12382e-09, -0.0199286, -0.76152, -1.63686e-09, 0, 0.156028, -0.856003)
 cast_shadow = 0
 mesh = SubResource("PrismMesh_2ao5i")
+surface_material_override/0 = SubResource("StandardMaterial3D_lf20s")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="torso/handl"]
 transform = Transform3D(-8.7369e-10, 3.32854e-08, -0.0433763, 0.153897, 0.0988993, 0, 0.0199877, -0.761482, -1.89604e-09, 0, -0.156, -0.858834)
 cast_shadow = 0
 mesh = SubResource("PrismMesh_2ao5i")
+surface_material_override/0 = SubResource("StandardMaterial3D_lf20s")
 
 [node name="legs" type="Node3D" parent="."]
 
@@ -126,33 +164,61 @@ mesh = SubResource("PrismMesh_2ao5i")
 transform = Transform3D(1, 0, 0, 0, 0.19952, 0, 0, 0, 1, 0, 0.639811, 0)
 cast_shadow = 0
 mesh = SubResource("BoxMesh_xoabs")
+surface_material_override/0 = SubResource("StandardMaterial3D_f8qxd")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="legs"]
 transform = Transform3D(0.580268, 0, 0, 0, 0.19952, 0, 0, 0, 0.392144, 0, 0.732105, 0)
 cast_shadow = 0
 mesh = SubResource("BoxMesh_xoabs")
+surface_material_override/0 = SubResource("StandardMaterial3D_f8qxd")
 
 [node name="leg1" type="MeshInstance3D" parent="legs"]
 transform = Transform3D(0.116652, 0.128104, 0.275041, 0, 0.0785642, -0.919211, -0.11386, 0.131245, 0.281786, 0.646179, 0.639811, 0.528959)
 cast_shadow = 0
 mesh = SubResource("BoxMesh_xoabs")
+surface_material_override/0 = SubResource("StandardMaterial3D_cw24b")
 
 [node name="leg2" type="MeshInstance3D" parent="legs"]
 transform = Transform3D(0.116664, -0.12808, -0.275135, 0, 0.0785994, -0.919135, 0.113847, 0.131248, 0.281941, -0.646, 0.64, 0.529)
 cast_shadow = 0
 mesh = SubResource("BoxMesh_xoabs")
+surface_material_override/0 = SubResource("StandardMaterial3D_cw24b")
 
 [node name="leg3" type="MeshInstance3D" parent="legs"]
 transform = Transform3D(-0.0793363, 0.160213, 0.343981, 0, 0.0785641, -0.919211, -0.142399, -0.0892616, -0.191646, 0.48079, 0.588699, -0.529)
 cast_shadow = 0
 mesh = SubResource("BoxMesh_xoabs")
+surface_material_override/0 = SubResource("StandardMaterial3D_cw24b")
 
 [node name="leg4" type="MeshInstance3D" parent="legs"]
 transform = Transform3D(-0.0792766, -0.160238, -0.344215, 0, 0.0785994, -0.919135, 0.142432, -0.0891871, -0.191588, -0.481, 0.588888, -0.529)
 cast_shadow = 0
 mesh = SubResource("BoxMesh_xoabs")
+surface_material_override/0 = SubResource("StandardMaterial3D_cw24b")
 
 [node name="camera_holder" type="Node3D" parent="."]
 
 [node name="Camera3D" type="Camera3D" parent="camera_holder"]
 current = true
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 4.77654, 0)
+visible = false
+light_bake_mode = 1
+editor_only = true
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.5, 0.866025, 0, -0.866025, -0.5, 0, 4.77654, 0)
+visible = false
+light_bake_mode = 1
+editor_only = true
+
+[node name="LightmapGI" type="LightmapGI" parent="."]
+generate_probes_subdiv = 0
+light_data = ExtResource("2_k4den")
+
+[node name="input_lock" type="Timer" parent="."]
+wait_time = 0.6
+one_shot = true
+
+[connection signal="timeout" from="input_lock" to="." method="_on_input_lock_timeout"]

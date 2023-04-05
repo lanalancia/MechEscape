@@ -6,6 +6,9 @@ const JUMP_VELOCITY = 4.5
 
 var jet_charge = 0
 
+var input_lock = false
+var lock_vector = Vector2()
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
@@ -78,7 +81,8 @@ func _physics_process(delta):
 	animate(camera_mode)
 	
 	#print(jet_charge)
-	
+	if input_lock:
+		input_dir = Vector2()
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
 		velocity.x = direction.x * SPEED * input_dir.length()
@@ -156,4 +160,13 @@ func animate(camera_mode):
 			$legs.transform = Transform3D()
 			$torso.transform = Transform3D()
 	
-	pass
+#func change_camera_mode(idx):
+	
+	#pass
+
+func lock_input():
+	$input_lock.start()
+	input_lock = true
+
+func _on_input_lock_timeout():
+	input_lock = false

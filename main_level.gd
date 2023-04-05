@@ -13,8 +13,13 @@ func _ready():
 
 
 func _process(delta):
-	$Camera_rails/top.global_position = PLAYER.global_position + Vector3(0, 7, 0) 
-	$Camera_rails/side.global_position = PLAYER.global_position + Vector3(7, 2, 0) 
+	$Camera_rails/top.position = Vector3(0, 7, 0)
+	$Camera_rails/side.position = Vector3(7, 2, 0)
+	$Camera_rails.transform = PLAYER.transform
+	#$Camera_rails.rotation.y = PLAYER.rotation.y 
+	$floor.position.x = PLAYER.position.x
+	$floor.position.z = PLAYER.position.z
+	
 	pass
 
 
