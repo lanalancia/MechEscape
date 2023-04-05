@@ -29,8 +29,8 @@ func _on_lifetime_timeout():
 	set_to_dieout()
 
 func set_to_dieout():
-	monitorable = false
-	monitoring = false
+	set_deferred("monitorable", false)
+	set_deferred("monitoring", false)
 	velocity *= 0
 	$explossion.show()
 	$MeshInstance3D.hide()
