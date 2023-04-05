@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://1rami4xbfxcq"]
+
+[ext_resource type="Script" path="res://chunks/chunk_spawner/chunk_spawner.gd" id="1_avuoa"]
+[ext_resource type="Material" uid="uid://dbtve6ai2dtsr" path="res://materials/Indication/flat_green.tres" id="1_hdv7e"]
+[ext_resource type="Material" uid="uid://dvfbeouug53an" path="res://materials/Indication/flat_red.tres" id="2_64poh"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_6ryu1"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_grts0"]
+
+[node name="chunk_spawner" type="Node3D"]
+script = ExtResource("1_avuoa")
+
+[node name="editor_visual" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="editor_visual"]
+transform = Transform3D(0.792699, 0, 0, 0, -3.86151e-08, 0.103158, 0, -0.88341, -4.50918e-09, 0, 0, -0.475523)
+cast_shadow = 0
+mesh = SubResource("PrismMesh_6ryu1")
+surface_material_override/0 = ExtResource("1_hdv7e")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="editor_visual"]
+transform = Transform3D(0.841252, 0, 0, 0, 0.124517, 0, 0, 0, 0.106215, 0, 0, 0)
+cast_shadow = 0
+mesh = SubResource("BoxMesh_grts0")
+surface_material_override/0 = ExtResource("2_64poh")
