@@ -6,7 +6,7 @@ var damage = 10
 var velocity = Vector3(0, 0, 0)
 
 func _ready():
-	velocity += (Vector3(randf(), randf(), randf()) - Vector3(0.5, 0.5, 0.5)) * 0.0023
+	velocity += (Vector3(randf(), randf() * 0.5, randf()) - Vector3(0.5, 0.5, 0.5)) * 0.0023
 	
 func _process(delta):
 	

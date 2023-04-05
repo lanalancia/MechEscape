@@ -10,7 +10,6 @@ func shoot():
 		var plasma_instance = plasma.instantiate()
 		plasma_instance.velocity = -global_transform.basis.z * 0.01
 		plasma_instance.global_transform = global_transform
-		print(get_tree().root.get_node("Main_level/bullets"))
 		get_tree().root.get_node("Main_level/bullets").add_child(plasma_instance)
 	pass
 
