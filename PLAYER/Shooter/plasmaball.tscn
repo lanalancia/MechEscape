@@ -1,0 +1,71 @@
+[gd_scene load_steps=8 format=3 uid="uid://c5e7sqnyh8gov"]
+
+[ext_resource type="Script" path="res://PLAYER/Shooter/plasmaball.gd" id="1_8j77f"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_ndkw8"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s17ff"]
+shading_mode = 0
+albedo_color = Color(0, 0.898039, 0.172549, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j5x17"]
+shading_mode = 0
+albedo_color = Color(0, 0.592157, 0.172549, 1)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_2hc8o"]
+radius = 0.119422
+
+[sub_resource type="SphereMesh" id="SphereMesh_87h01"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kb7mn"]
+shading_mode = 0
+
+[node name="plasmaball" type="Area3D"]
+script = ExtResource("1_8j77f")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.25561, 0, 0, 0, 0.25561, 0, 0, 0, 0.25561, 0, 0, 0)
+mesh = SubResource("SphereMesh_ndkw8")
+surface_material_override/0 = SubResource("StandardMaterial3D_s17ff")
+
+[node name="sup1" type="Node3D" parent="."]
+transform = Transform3D(1.76343, 0.661505, 0.76264, 0, 1.53499, -1.33143, -1.00956, 1.15547, 1.33213, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="sup1"]
+transform = Transform3D(0.0298685, 0, 0, 0, 0.0298685, 0, 0, 0, 0.0298685, 0, 0.106299, 0)
+mesh = SubResource("SphereMesh_ndkw8")
+surface_material_override/0 = SubResource("StandardMaterial3D_j5x17")
+
+[node name="sup2" type="Node3D" parent="."]
+transform = Transform3D(0.214726, 1.66312, -1.14753, 0, -1.15399, -1.67249, -2.02059, 0.176738, -0.121946, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="sup2"]
+transform = Transform3D(0.0298685, 0, 0, 0, 0.0298685, 0, 0, 0, 0.0298685, 0, 0.106299, 0)
+mesh = SubResource("SphereMesh_ndkw8")
+surface_material_override/0 = SubResource("StandardMaterial3D_j5x17")
+
+[node name="sup3" type="Node3D" parent="."]
+transform = Transform3D(0.143416, 0.213723, 2.0156, -1.68729, 1.13223, 0, -1.12311, -1.6737, 0.257382, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="sup3"]
+transform = Transform3D(0.0298685, 0, 0, 0, 0.0298685, 0, 0, 0, 0.0298685, 0, 0.106299, 0)
+mesh = SubResource("SphereMesh_ndkw8")
+surface_material_override/0 = SubResource("StandardMaterial3D_j5x17")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(2.03197, 0, 0, 0, 2.03197, 0, 0, 0, 2.03197, 0, 0, 0)
+shape = SubResource("SphereShape3D_2hc8o")
+
+[node name="lifetime" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[node name="explossion" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.616549, 0, 0, 0, 0.616549, 0, 0, 0, 0.616549, 0, 0, 0)
+visible = false
+mesh = SubResource("SphereMesh_87h01")
+surface_material_override/0 = SubResource("StandardMaterial3D_kb7mn")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="lifetime" to="." method="_on_lifetime_timeout"]
