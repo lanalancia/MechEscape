@@ -69,3 +69,5 @@ surface_material_override/0 = SubResource("StandardMaterial3D_fxchy")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="floor/StaticBody3D"]
 shape = SubResource("BoxShape3D_64n4w")
+
+[node name="bullets" type="Node3D" parent="."]
