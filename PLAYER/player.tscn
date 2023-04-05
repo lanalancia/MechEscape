@@ -1,6 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://cdgmyqcnpbbpx"]
+[gd_scene load_steps=15 format=3 uid="uid://cdgmyqcnpbbpx"]
 
 [ext_resource type="Script" path="res://PLAYER/player.gd" id="1_0akw1"]
+[ext_resource type="PackedScene" uid="uid://c0xi4ubm0c4p0" path="res://PLAYER/Shooter/shooter_pew_pew.tscn" id="2_j1t3u"]
 [ext_resource type="LightmapGIData" uid="uid://d2f0n6sqorxop" path="res://PLAYER/player.lmbake" id="2_k4den"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wuh24"]
@@ -137,6 +138,9 @@ cast_shadow = 0
 mesh = SubResource("PrismMesh_2ao5i")
 surface_material_override/0 = SubResource("StandardMaterial3D_lf20s")
 
+[node name="shooter" parent="torso/handr" instance=ExtResource("2_j1t3u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.773716)
+
 [node name="handl" type="Node3D" parent="torso"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.884, 1.432, 0.249)
 
@@ -157,6 +161,9 @@ transform = Transform3D(-8.7369e-10, 3.32854e-08, -0.0433763, 0.153897, 0.098899
 cast_shadow = 0
 mesh = SubResource("PrismMesh_2ao5i")
 surface_material_override/0 = SubResource("StandardMaterial3D_lf20s")
+
+[node name="shooter" parent="torso/handl" instance=ExtResource("2_j1t3u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.773716)
 
 [node name="legs" type="Node3D" parent="."]
 

@@ -78,6 +78,9 @@ func _physics_process(delta):
 		_:
 			pass
 	
+	if get_node(CONTROLLER).get_values()[1].length() > 0.8:
+		$torso/handl/shooter.shoot()
+		$torso/handr/shooter.shoot()
 	animate(camera_mode)
 	
 	#print(jet_charge)

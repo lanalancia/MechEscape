@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://c0xi4ubm0c4p0"]
+
+[ext_resource type="Script" path="res://PLAYER/Shooter/shooter_pew_pew.gd" id="1_v6bmi"]
+
+[node name="shooter_pew_pew" type="Node3D"]
+script = ExtResource("1_v6bmi")
+
+[node name="cooldown" type="Timer" parent="."]
+wait_time = 0.126
+one_shot = true
+
+[connection signal="timeout" from="cooldown" to="." method="_on_cooldown_timeout"]
