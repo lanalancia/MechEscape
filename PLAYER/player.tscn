@@ -709,7 +709,7 @@ mesh = SubResource("PrismMesh_2ao5i")
 surface_material_override/0 = SubResource("StandardMaterial3D_lf20s")
 
 [node name="shooter" parent="torso/handl" instance=ExtResource("2_j1t3u")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.773716)
+transform = Transform3D(0.996195, 0, -0.0871557, 0, 1, 0, 0.0871557, 0, 0.996195, 0, 0, -0.773716)
 
 [node name="handr" type="Node3D" parent="torso"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.884498, 1.43214, 0.248811)
@@ -733,7 +733,7 @@ mesh = SubResource("PrismMesh_2ao5i")
 surface_material_override/0 = SubResource("StandardMaterial3D_lf20s")
 
 [node name="shooter" parent="torso/handr" instance=ExtResource("2_j1t3u")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.773716)
+transform = Transform3D(0.996195, 0, 0.0871557, 0, 1, 0, -0.0871557, 0, 0.996195, 0, 0, -0.773716)
 
 [node name="shoulder_l" type="Node3D" parent="torso"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.245466, 1.64704, 0.259651)

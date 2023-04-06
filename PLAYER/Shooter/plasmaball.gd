@@ -14,7 +14,7 @@ func _process(delta):
 	$sup2.rotate_object_local(Vector3(1, 0, 0), (angular_speed + 4) * delta)
 	$sup3.rotate_object_local(Vector3(1, 0, 0), (angular_speed + 8) * delta)
 	
-	global_position += velocity * 5
+	global_position += velocity * delta
 	if $explossion.visible:
 		$explossion.scale -= Vector3(1, 1, 1) * delta * 2
 		if $explossion.scale.x < 0:
