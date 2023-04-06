@@ -1,12 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://b7yrrrer7fe07"]
+[gd_scene load_steps=3 format=3 uid="uid://b7yrrrer7fe07"]
 
 [ext_resource type="Script" path="res://camera_mode_switcher.gd" id="1_jwks8"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ras6n"]
-size = Vector3(3.13218, 3.04352, 0.36963)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_l6a42"]
-size = Vector3(31.2243, 28.7718, 2.34555)
+size = Vector3(11, 45.5892, 0.36963)
 
 [node name="camera_mode_switcher" type="Node3D"]
 script = ExtResource("1_jwks8")
@@ -14,7 +11,7 @@ script = ExtResource("1_jwks8")
 [node name="mode0" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="mode0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 20.9482, 1)
 shape = SubResource("BoxShape3D_ras6n")
 
 [node name="Label3D" type="Label3D" parent="mode0"]
@@ -26,7 +23,7 @@ font_size = 72
 [node name="mode1" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="mode1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 20.9482, -1)
 shape = SubResource("BoxShape3D_ras6n")
 
 [node name="Label3D" type="Label3D" parent="mode1"]
@@ -34,13 +31,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -1)
 billboard = 1
 text = "Sideview"
 font_size = 72
-
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
-visible = false
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 17, 0)
-shape = SubResource("BoxShape3D_l6a42")
 
 [connection signal="body_entered" from="mode0" to="." method="_on_mode_0_body_entered"]
 [connection signal="body_entered" from="mode1" to="." method="_on_mode_1_body_entered"]
