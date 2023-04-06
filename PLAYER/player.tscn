@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://cdgmyqcnpbbpx"]
+[gd_scene load_steps=25 format=3 uid="uid://cdgmyqcnpbbpx"]
 
 [ext_resource type="Script" path="res://PLAYER/player.gd" id="1_0akw1"]
 [ext_resource type="PackedScene" uid="uid://c0xi4ubm0c4p0" path="res://PLAYER/Shooter/shooter_pew_pew.tscn" id="2_j1t3u"]
@@ -564,8 +564,16 @@ _data = {
 "walk": SubResource("Animation_8m5xk")
 }
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jiikb"]
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_gj3tt"]
+
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_onthf"]
-graph_offset = Vector2(-405.962, 59.2031)
+graph_offset = Vector2(-285, 179)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_jiikb")
+nodes/Animation/position = Vector2(-33, 162)
+nodes/Blend2/node = SubResource("AnimationNodeBlend2_gj3tt")
+nodes/Blend2/position = Vector2(162, 252)
 
 [node name="PLAYER" type="CharacterBody3D" groups=["PLAYER"]]
 script = ExtResource("1_0akw1")
@@ -723,7 +731,7 @@ mesh = SubResource("BoxMesh_xoabs")
 surface_material_override/0 = SubResource("StandardMaterial3D_f8qxd")
 
 [node name="leg1" type="MeshInstance3D" parent="legs"]
-transform = Transform3D(0.116652, 0.128104, 0.275043, 0, 0.0785644, -0.91921, -0.11386, 0.131245, 0.281787, 0.646179, 0.639811, 0.528959)
+transform = Transform3D(0.116652, 0.128104, 0.275043, 0, 0.0785645, -0.91921, -0.11386, 0.131245, 0.281787, 0.646179, 0.639811, 0.528959)
 cast_shadow = 0
 mesh = SubResource("BoxMesh_xoabs")
 surface_material_override/0 = SubResource("StandardMaterial3D_cw24b")
@@ -735,13 +743,13 @@ mesh = SubResource("BoxMesh_xoabs")
 surface_material_override/0 = SubResource("StandardMaterial3D_cw24b")
 
 [node name="leg3" type="MeshInstance3D" parent="legs"]
-transform = Transform3D(-0.0793369, 0.160213, 0.343982, 0, 0.0785643, -0.91921, -0.142399, -0.0892619, -0.191648, 0.48079, 0.588699, -0.529)
+transform = Transform3D(-0.0793371, 0.160213, 0.343982, 0, 0.0785644, -0.91921, -0.142399, -0.0892621, -0.191648, 0.48079, 0.588699, -0.529)
 cast_shadow = 0
 mesh = SubResource("BoxMesh_xoabs")
 surface_material_override/0 = SubResource("StandardMaterial3D_cw24b")
 
 [node name="leg4" type="MeshInstance3D" parent="legs"]
-transform = Transform3D(-0.079277, -0.160238, -0.344215, 0, 0.0785995, -0.919135, 0.142432, -0.0891877, -0.191589, -0.481, 0.588888, -0.529)
+transform = Transform3D(-0.0792771, -0.160238, -0.344215, 0, 0.0785996, -0.919135, 0.142432, -0.0891879, -0.191589, -0.481, 0.588888, -0.529)
 cast_shadow = 0
 mesh = SubResource("BoxMesh_xoabs")
 surface_material_override/0 = SubResource("StandardMaterial3D_cw24b")
@@ -779,5 +787,6 @@ libraries = {
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeBlendTree_onthf")
 anim_player = NodePath("../AnimationPlayer")
+parameters/Blend2/blend_amount = 0
 
 [connection signal="timeout" from="input_lock" to="." method="_on_input_lock_timeout"]
