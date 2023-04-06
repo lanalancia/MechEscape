@@ -18,6 +18,11 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 var camera_mode = 0
 
+func _ready():
+	$torso/ray_l.add_exception(self)
+	$torso/ray_r.add_exception(self)
+	pass
+
 func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
@@ -98,6 +103,22 @@ func _physics_process(delta):
 
 
 func animate(camera_mode):
+	if $torso/ray_l.is_colliding():
+		$anim_left.play("hand_left_forward")
+	else:
+		$anim_left.play("hand_left_idle")
+	
+	if $torso/ray_r.is_colliding():
+		$anim_left.play("hand_right_forward")
+	else:
+		$anim_left.play("hand_right_idle")
+	
+	if get_node(CONTROLLER).get_values()[0].length() > 0.1:
+		if $anim_legs.current_animation != "walk":
+			$anim_legs.play("walk")
+	else:
+		$anim_legs.play("idle")
+	
 	match camera_mode:
 		0:
 			$legs.rotation.x = 0
