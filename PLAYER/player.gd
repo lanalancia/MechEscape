@@ -121,9 +121,10 @@ func animate(camera_mode):
 	
 	match camera_mode:
 		0:
+			$torso/handl.rotation.x = 0
+			$torso/handr.rotation.x = 0
 			$legs.rotation.x = 0
 			$legs.rotation.z = 0
-			$torso/handl.rotation.x = 0
 			if get_node(CONTROLLER).get_values()[0].length() > 0.1:
 				var target_vector_legs = get_node(CONTROLLER).get_values()[0].rotated(PI/2) * Vector2(1, -1)
 				var current_vector_legs = Vector2(1, 0).rotated($legs.rotation.y)
