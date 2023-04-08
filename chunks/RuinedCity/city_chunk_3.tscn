@@ -1,11 +1,13 @@
-[gd_scene load_steps=11 format=3 uid="uid://7tfgdo37poe5"]
+[gd_scene load_steps=13 format=3 uid="uid://7tfgdo37poe5"]
 
 [ext_resource type="Script" path="res://chunks/base_chunk.gd" id="1_n4mxl"]
 [ext_resource type="PackedScene" uid="uid://1rami4xbfxcq" path="res://chunks/chunk_spawner/chunk_spawner.tscn" id="1_pjf3n"]
 [ext_resource type="Material" uid="uid://d3kty78nggpna" path="res://materials/Surfaces/Concrete.tres" id="3_k14in"]
 [ext_resource type="PackedScene" uid="uid://btfgffs76gg22" path="res://chunks/chunk_spawner/Player_detection_area.tscn" id="4_g52b6"]
 [ext_resource type="LightmapGIData" uid="uid://8q7yt3jaj3ke" path="res://chunks/RuinedCity/city_chunk_3.lmbake" id="5_6uiyf"]
-[ext_resource type="PackedScene" uid="uid://djmilspquc4y" path="res://Entities/Troop/troop.tscn" id="6_uo1di"]
+[ext_resource type="PackedScene" uid="uid://clcn5hb3f7cvv" path="res://Entities/entity_spawner/entity_spawner.tscn" id="6_i25bw"]
+[ext_resource type="PackedScene" uid="uid://cx2lkrxnrd4ps" path="res://Entities/Troop/troop.tscn" id="6_uo1di"]
+[ext_resource type="PackedScene" uid="uid://81innv3cd1w5" path="res://Entities/entity_spawner/spawnpoint.tscn" id="7_516x8"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_m8fuv"]
 lightmap_size_hint = Vector2i(14, 21)
@@ -119,8 +121,17 @@ shape = SubResource("BoxShape3D_kcym8")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.37119, 4, -9.99371)
 shape = SubResource("BoxShape3D_3epfq")
 
-[node name="Troop5" parent="." instance=ExtResource("6_uo1di")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.18463, 0, -6.15636)
+[node name="entity_spawner" parent="." instance=ExtResource("6_i25bw")]
+chance_empty = 0.48
 
-[node name="Troop4" parent="." instance=ExtResource("6_uo1di")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.23535, 0, -5.99542)
+[node name="spawnpoint" parent="entity_spawner" instance=ExtResource("7_516x8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.630387, 0, -4.24868)
+spawnable_entities = Array[PackedScene]([ExtResource("6_uo1di")])
+
+[node name="spawnpoint2" parent="entity_spawner" instance=ExtResource("7_516x8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.800768, 0, -4.24868)
+spawnable_entities = Array[PackedScene]([ExtResource("6_uo1di")])
+
+[node name="spawnpoint3" parent="entity_spawner" instance=ExtResource("7_516x8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0597787, 0, -3.18713)
+spawnable_entities = Array[PackedScene]([ExtResource("6_uo1di")])
