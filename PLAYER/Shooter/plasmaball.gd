@@ -21,7 +21,7 @@ func _process(delta):
 			queue_free()
 
 func _on_area_entered(area):
-	if area.is_in_group("EVIL") and area.is_in_group("HITBOX"):
+	if area.is_in_group("HITBOX") and area.get_parent().is_in_group("ENEMY"):
 		area.get_parent().damage(damage)
 		set_to_dieout()
 
