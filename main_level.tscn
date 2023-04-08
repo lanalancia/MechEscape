@@ -35,18 +35,30 @@ environment = SubResource("Environment_vcfff")
 
 [node name="Touch_controler" parent="UI" instance=ExtResource("1_apbtu")]
 
+[node name="healthbar" type="Node2D" parent="UI"]
+
+[node name="ColorRect" type="ColorRect" parent="UI/healthbar"]
+offset_left = 34.0
+offset_top = 33.0
+offset_right = 534.0
+offset_bottom = 73.0
+scale = Vector2(0.639999, 1)
+color = Color(0, 0, 0, 1)
+
+[node name="HP" type="Node2D" parent="UI/healthbar"]
+position = Vector2(42, 39)
+scale = Vector2(3.04, 0.6)
+
+[node name="hp_line" type="ColorRect" parent="UI/healthbar/HP"]
+offset_right = 100.0
+offset_bottom = 40.0
+color = Color(0, 0.721569, 1, 1)
+
 [node name="chunks" type="Node3D" parent="."]
 
 [node name="PLAYER" parent="." instance=ExtResource("3_mjqbl")]
 CONTROLLER = NodePath("../UI/Touch_controler")
 CAMERA_RAILS = NodePath("../Camera_rails")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.97732, -0.108844, -0.181656, 0.211768, 0.502319, 0.83835, 0, -0.857805, 0.513976, 0, 8.17728, 0)
-visible = false
-light_indirect_energy = 0.0
-light_cull_mask = 4293918721
-editor_only = true
 
 [node name="Camera_rails" type="Node3D" parent="."]
 
@@ -71,3 +83,5 @@ surface_material_override/0 = SubResource("StandardMaterial3D_fxchy")
 shape = SubResource("BoxShape3D_64n4w")
 
 [node name="bullets" type="Node3D" parent="."]
+
+[node name="enemies" type="Node3D" parent="."]

@@ -19,9 +19,17 @@ func _process(delta):
 	#$Camera_rails.rotation.y = PLAYER.rotation.y 
 	$floor.position.x = PLAYER.position.x
 	$floor.position.z = PLAYER.position.z
-	
+	update_UI()
 	pass
 
+func update_UI():
+	var screen_scale = $UI.get_viewport_rect().size / Vector2(1152, 648)
+	var screen_scale_factor = (screen_scale.x + screen_scale.y) / 2
+	$UI/healthbar.scale = Vector2(1, 1) * screen_scale_factor
+	
+	$UI/healthbar/HP/hp_line.size.x = PLAYER.health
+	
+	pass
 
 func change_1root_scene_to(scene):
 	print(scene)

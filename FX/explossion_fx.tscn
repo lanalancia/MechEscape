@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://bllkuwmkk2t15"]
+
+[ext_resource type="Script" path="res://FX/explossion_fx.gd" id="1_7ih17"]
+[ext_resource type="Material" uid="uid://cpeqi5uo86qct" path="res://materials/effects/explossion.tres" id="1_gogvn"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_untri"]
+
+[node name="explossion_FX" type="Node3D"]
+script = ExtResource("1_7ih17")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.59968, 0, 0, 0, 1.59968, 0, 0, 0, 1.59968, 0, 0, 0)
+mesh = SubResource("SphereMesh_untri")
+surface_material_override/0 = ExtResource("1_gogvn")

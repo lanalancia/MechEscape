@@ -1,6 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://c5e7sqnyh8gov"]
 
 [ext_resource type="Script" path="res://PLAYER/Shooter/plasmaball.gd" id="1_8j77f"]
+[ext_resource type="Material" uid="uid://cpeqi5uo86qct" path="res://materials/effects/explossion.tres" id="2_06241"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_ndkw8"]
 
@@ -17,10 +18,7 @@ radius = 0.119422
 
 [sub_resource type="SphereMesh" id="SphereMesh_87h01"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kb7mn"]
-shading_mode = 0
-
-[node name="plasmaball" type="Area3D"]
+[node name="plasmaball" type="Area3D" groups=["PROJECTILE"]]
 script = ExtResource("1_8j77f")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
@@ -64,7 +62,7 @@ autostart = true
 transform = Transform3D(0.616549, 0, 0, 0, 0.616549, 0, 0, 0, 0.616549, 0, 0, 0)
 visible = false
 mesh = SubResource("SphereMesh_87h01")
-surface_material_override/0 = SubResource("StandardMaterial3D_kb7mn")
+surface_material_override/0 = ExtResource("2_06241")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,98 @@
+[gd_scene load_steps=7 format=3 uid="uid://djmilspquc4y"]
+
+[ext_resource type="Script" path="res://Troop.gd" id="1_2tlsu"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_y7hkq"]
+radius = 0.330875
+height = 1.5382
+
+[sub_resource type="SphereMesh" id="SphereMesh_epnbf"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_jmrnb"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_7nb8m"]
+radius = 8.0
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ppdt8"]
+height = 1.32924
+
+[node name="Troop" type="CharacterBody3D" groups=["ENEMY", "walking"]]
+script = ExtResource("1_2tlsu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.775378, 0)
+shape = SubResource("CapsuleShape3D_y7hkq")
+
+[node name="Visual" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Visual"]
+transform = Transform3D(0.495713, 0, 0, 0, 0.495713, 0, 0, 0, 0.495713, 0, 0.240976, 0)
+cast_shadow = 0
+mesh = SubResource("SphereMesh_epnbf")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Visual"]
+transform = Transform3D(0.107306, 0, 0, 0, 0.359717, 0, 0, 0, 0.107306, 0, 0.638377, 0.171617)
+cast_shadow = 0
+mesh = SubResource("BoxMesh_jmrnb")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Visual"]
+transform = Transform3D(0.107306, 0, 0, 0, 0.359717, 0, 0, 0, 0.107306, 0, 1.11613, 0.171617)
+cast_shadow = 0
+mesh = SubResource("BoxMesh_jmrnb")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="Visual"]
+transform = Transform3D(0.471108, 0, 0, 0, 0.109107, 0, 0, 0, 0.107306, 0, 1.11613, 0.0469951)
+cast_shadow = 0
+mesh = SubResource("BoxMesh_jmrnb")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="Visual"]
+transform = Transform3D(0.0877692, 0, 0, 0, 0.0886968, 0, 0, 0, 0.2932, 0.228913, 1.11613, -0.199693)
+cast_shadow = 0
+mesh = SubResource("BoxMesh_jmrnb")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="Visual"]
+transform = Transform3D(0.0877692, 0, 0, 0, 0.0886968, 0, 0, 0, 0.2932, -0.229, 1.116, -0.2)
+cast_shadow = 0
+mesh = SubResource("BoxMesh_jmrnb")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Visual"]
+transform = Transform3D(0.107306, 0, 0, 0, 0.144191, 0.098308, 0, -0.329553, 0.043013, 0, 1.45767, -0.0259166)
+cast_shadow = 0
+mesh = SubResource("BoxMesh_jmrnb")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="Visual"]
+transform = Transform3D(0.0673025, 0, 0, 0, -0.00748945, 0.0668871, 0, -0.0670977, -0.00746595, 0, 1.44273, -0.159823)
+cast_shadow = 0
+mesh = SubResource("BoxMesh_jmrnb")
+
+[node name="shooter" type="Marker3D" parent="Visual"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.13234, -0.616152)
+
+[node name="entity_scan" type="Area3D" parent="."]
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="entity_scan"]
+shape = SubResource("SphereShape3D_7nb8m")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.3
+autostart = true
+
+[node name="wander" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[node name="hitbox" type="Area3D" parent="." groups=["ENEMY", "HITBOX"]]
+monitoring = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="hitbox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.784331, 0)
+shape = SubResource("CylinderShape3D_ppdt8")
+
+[node name="stun" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="calculate_movement_direction"]
+[connection signal="timeout" from="wander" to="." method="_on_wander_timeout"]
+[connection signal="timeout" from="stun" to="." method="_on_stun_timeout"]

@@ -14,14 +14,14 @@ func _process(delta):
 	$sup2.rotate_object_local(Vector3(1, 0, 0), (angular_speed + 4) * delta)
 	$sup3.rotate_object_local(Vector3(1, 0, 0), (angular_speed + 8) * delta)
 	
-	global_position += velocity * 5
+	global_position += velocity * delta
 	if $explossion.visible:
 		$explossion.scale -= Vector3(1, 1, 1) * delta * 2
 		if $explossion.scale.x < 0:
 			queue_free()
 
 func _on_area_entered(area):
-	if area.is_in_group("EVIL") and area.is_in_group("HITBOX"):
+	if area.is_in_group("HITBOX") and area.get_parent().is_in_group("ENEMY"):
 		area.get_parent().damage(damage)
 		set_to_dieout()
 

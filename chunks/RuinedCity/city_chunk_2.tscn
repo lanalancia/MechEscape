@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cnwq04apvlfwm"]
+[gd_scene load_steps=11 format=3 uid="uid://cnwq04apvlfwm"]
 
 [ext_resource type="Script" path="res://chunks/base_chunk.gd" id="1_xj8a7"]
 [ext_resource type="PackedScene" uid="uid://1rami4xbfxcq" path="res://chunks/chunk_spawner/chunk_spawner.tscn" id="1_ym31e"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://btfgffs76gg22" path="res://chunks/chunk_spawner/Player_detection_area.tscn" id="5_u445g"]
 [ext_resource type="LightmapGIData" uid="uid://b30ur37yv18qw" path="res://chunks/RuinedCity/city_chunk_2.lmbake" id="6_e2d1r"]
 [ext_resource type="PackedScene" uid="uid://ctss3q7w3np4k" path="res://chunks/gates/falling_building.tscn" id="6_mw0vl"]
+[ext_resource type="PackedScene" uid="uid://djmilspquc4y" path="res://Entities/Troop/troop.tscn" id="7_t1ida"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_m8fuv"]
 lightmap_size_hint = Vector2i(14, 21)
@@ -119,3 +120,12 @@ shape = SubResource("BoxShape3D_uvyu4")
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1.70698, -4.49129)
 shape = SubResource("BoxShape3D_uvyu4")
+
+[node name="Troop3" parent="." instance=ExtResource("7_t1ida")]
+transform = Transform3D(0.735364, 0, -0.677672, 0, 1, 0, 0.677672, 0, 0.735364, -1.31848, 0, -6.74773)
+
+[node name="Troop2" parent="." instance=ExtResource("7_t1ida")]
+transform = Transform3D(0.735364, 0, -0.677672, 0, 1, 0, 0.677672, 0, 0.735364, 0.94739, 0, -6.93744)
+
+[node name="Troop4" parent="." instance=ExtResource("7_t1ida")]
+transform = Transform3D(0.735364, 0, -0.677672, 0, 1, 0, 0.677672, 0, 0.735364, 1.12282, 0, -4.07293)
