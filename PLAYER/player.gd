@@ -9,6 +9,10 @@ var jet_charge = 0
 var input_lock = false
 var lock_vector = Vector2()
 
+var health = 100
+
+var alive = true
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
@@ -17,6 +21,7 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var rails = [get_node(CAMERA_RAILS).get_child(0), get_node(CAMERA_RAILS).get_child(1), get_node(CAMERA_RAILS).get_child(2)]
 
 var camera_mode = 0
+var EXPLOSION = preload("res://FX/explossion_fx.tscn")
 
 func _ready():
 	$torso/ray_l.add_exception(self)
@@ -27,7 +32,15 @@ func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y -= gravity * delta
-
+	
+	if health <= 0:
+		alive = false
+		health = 0
+	
+	if !alive:
+		if randi()%70 == 0:
+			$hitbox/damage_visualisation_points.get_children().pick_random().add_child(EXPLOSION.instantiate())
+	
 	# Handle Jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
@@ -42,54 +55,56 @@ func _physics_process(delta):
 	
 	
 	var input_dir = Vector2.ZERO
-	match camera_mode:
-		-1:
-			input_dir = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
-		0: #top-down
-			input_dir = get_node(CONTROLLER).get_values()[0]
-			$camera_holder.global_transform = $camera_holder.global_transform.interpolate_with(rails[0].global_transform, 0.15)
-			
-			#var camera_shift_vector = clamp($camera_holder/Camera3D.position, ) 
-			#$camera_holder/Camera3D.position.x = clamp( $camera_holder/Camera3D.position.x + get_node(CONTROLLER).get_values()[0].x * 0.1, -1, 1 )
-			#$camera_holder/Camera3D.position.y = clamp( $camera_holder/Camera3D.position.y - get_node(CONTROLLER).get_values()[0].y * 0.1, -1, 1 )
-			
-			$camera_holder/Camera3D.position.x += get_node(CONTROLLER).get_values()[0].x * 0.1
-			$camera_holder/Camera3D.position.y -= get_node(CONTROLLER).get_values()[0].y * 0.1
-			
-			if $camera_holder/Camera3D.position.length() > 0.3:
-				$camera_holder/Camera3D.position = $camera_holder/Camera3D.position.normalized() * 0.3
-		1: #side
-			$camera_holder.global_transform = $camera_holder.global_transform.interpolate_with(rails[1].global_transform, 0.15)
-			input_dir.x = 0
-			if get_node(CONTROLLER).get_values()[0].y <= 0.8 or !is_on_floor():
-				input_dir.y = -get_node(CONTROLLER).get_values()[0].x
-			
-			if is_on_floor() and get_node(CONTROLLER).get_values()[0].y > 0.7:
-				jet_charge += delta*4
-			if is_on_floor() and get_node(CONTROLLER).get_values()[0].y < 0.7:
-				jet_charge -= delta*5
-			
-			jet_charge = clamp(jet_charge, 0, 1.5)
-			#print(jet_charge)
-			if is_on_floor() and get_node(CONTROLLER).get_values()[0].y < -0.5 and jet_charge >= 0.7:
-				velocity.y = 1
-				jet_charge -= 0.01
-			if !is_on_floor() and get_node(CONTROLLER).get_values()[0].y < 0 and jet_charge > 0:
-				velocity.y += 0.3
-				jet_charge -= 0.01
-		2: #flying mode (backward)
-			$camera_holder.global_transform = $camera_holder.global_transform.interpolate_with(rails[2].global_transform, 0.15)
-			pass
-		_:
-			pass
+	if alive:
+		match camera_mode:
+			-1:
+				input_dir = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+			0: #top-down
+				input_dir = get_node(CONTROLLER).get_values()[0]
+				$camera_holder.global_transform = $camera_holder.global_transform.interpolate_with(rails[0].global_transform, 0.15)
+				
+				$camera_holder/Camera3D.position.x += get_node(CONTROLLER).get_values()[0].x * 0.1
+				$camera_holder/Camera3D.position.y -= get_node(CONTROLLER).get_values()[0].y * 0.1
+				
+				if $camera_holder/Camera3D.position.length() > 0.3:
+					$camera_holder/Camera3D.position = $camera_holder/Camera3D.position.normalized() * 0.3
+			1: #side
+				$camera_holder.global_transform = $camera_holder.global_transform.interpolate_with(rails[1].global_transform, 0.15)
+				input_dir.x = 0
+				if get_node(CONTROLLER).get_values()[0].y <= 0.8 or !is_on_floor():
+					input_dir.y = -get_node(CONTROLLER).get_values()[0].x
+				
+				if is_on_floor() and get_node(CONTROLLER).get_values()[0].y > 0.7:
+					jet_charge += delta*4
+				if is_on_floor() and get_node(CONTROLLER).get_values()[0].y < 0.7:
+					jet_charge -= delta*5
+				
+				jet_charge = clamp(jet_charge, 0, 1.5)
+				#print(jet_charge)
+				if is_on_floor() and get_node(CONTROLLER).get_values()[0].y < -0.5 and jet_charge >= 0.7:
+					velocity.y = 1
+					jet_charge -= 0.01
+				if !is_on_floor() and get_node(CONTROLLER).get_values()[0].y < 0 and jet_charge > 0:
+					velocity.y += 0.3
+					jet_charge -= 0.01
+			2: #flying mode (backward)
+				$camera_holder.global_transform = $camera_holder.global_transform.interpolate_with(rails[2].global_transform, 0.15)
+				pass
+			_:
+				pass
+		animate(camera_mode)
 	
-	if get_node(CONTROLLER).get_values()[1].length() > 0.8:
-		$torso/handl/shooter.shoot()
-		$torso/handr/shooter.shoot()
-	animate(camera_mode)
+		if get_node(CONTROLLER).get_values()[1].length() > 0.8:
+			$torso/handl/shooter.shoot()
+			$torso/handr/shooter.shoot()
 	
-	#print(jet_charge)
-	if input_lock:
+	var repel_wall_vector = Vector2()
+	repel_wall_vector.x += (int($torso/ray_l.is_colliding()) + -int($torso/ray_r.is_colliding())) * 0.3
+	
+	repel_wall_vector = repel_wall_vector.rotated(-$torso.rotation.y)
+	input_dir += repel_wall_vector
+	
+	if input_lock or !alive:
 		input_dir = Vector2()
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
@@ -185,9 +200,15 @@ func animate(camera_mode):
 			$legs.transform = Transform3D()
 			$torso.transform = Transform3D()
 	
-#func change_camera_mode(idx):
-	
-	#pass
+func damage(value):
+	health -= value
+	$hitbox/damage_visualisation_points.get_children().pick_random().add_child(EXPLOSION.instantiate())
+	pass
+
+func kill():
+	alive = false
+	$anim_legs.pause()
+	pass
 
 func lock_input():
 	$input_lock.start()
