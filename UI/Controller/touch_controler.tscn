@@ -93,13 +93,13 @@ func get_value() -> Vector2:
 script = ExtResource("1_dwoyb")
 
 [node name="lpos" type="Marker2D" parent="."]
-position = Vector2(141, 491)
+position = Vector2(141, 348)
 
 [node name="virtual_joystick" type="Node2D" parent="lpos"]
 script = SubResource("GDScript_5c0aj")
 
 [node name="rpos" type="Marker2D" parent="."]
-position = Vector2(998, 491)
+position = Vector2(998, 348)
 
 [node name="virtual_joystick" type="Node2D" parent="rpos"]
 script = SubResource("GDScript_5c0aj")
