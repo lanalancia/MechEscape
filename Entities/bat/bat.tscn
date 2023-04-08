@@ -1,0 +1,74 @@
+[gd_scene load_steps=8 format=3 uid="uid://c5lfer2dv76f0"]
+
+[ext_resource type="Script" path="res://Entities/bat/bat.gd" id="1_gy4sp"]
+[ext_resource type="Material" uid="uid://dvfbeouug53an" path="res://materials/Indication/flat_red.tres" id="2_utlif"]
+[ext_resource type="Material" uid="uid://bqm4blkw3ds81" path="res://materials/Surfaces/Military_green.tres" id="2_wg4oq"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_65olb"]
+radius = 0.233494
+
+[sub_resource type="TorusMesh" id="TorusMesh_3xefy"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_nbngu"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pkw3v"]
+size = Vector3(0.498643, 0.135152, 0.302309)
+
+[node name="Bat" type="CharacterBody3D" groups=["ENEMY", "flying"]]
+collision_layer = 0
+script = ExtResource("1_gy4sp")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="movement_change" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[node name="charge" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_65olb")
+
+[node name="visual" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="visual"]
+transform = Transform3D(-0.254185, 0, -2.22216e-08, 0, 0.142198, 0, 2.22216e-08, 0, -0.254185, 1.89512e-09, 0, 0.0433552)
+mesh = SubResource("TorusMesh_3xefy")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("2_wg4oq")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="visual"]
+transform = Transform3D(7.09405e-09, -0.0732285, -1.38654e-08, -0.162293, -3.20092e-09, 0, -6.20181e-16, 6.40184e-09, -0.158602, 1.85234e-08, 0, 0.233561)
+mesh = SubResource("TorusMesh_3xefy")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("2_wg4oq")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="visual"]
+transform = Transform3D(9.43681e-09, -3.75948e-08, -0.0297308, 0.215889, 5.47774e-16, 1.29957e-09, -8.24992e-16, -0.286689, 3.89872e-09, -2.04186e-08, 0, -0.211883)
+mesh = SubResource("PrismMesh_nbngu")
+surface_material_override/0 = ExtResource("2_utlif")
+
+[node name="Blade" type="MeshInstance3D" parent="visual"]
+transform = Transform3D(0.720433, 2.19109e-15, 2.59915e-09, -6.29823e-08, 3.75948e-08, 0.0297308, -2.75304e-15, -0.286689, 3.89872e-09, -2.04186e-08, 0, -0.161183)
+visible = false
+mesh = SubResource("PrismMesh_nbngu")
+surface_material_override/0 = ExtResource("2_utlif")
+
+[node name="damage_zone" type="Area3D" parent="visual"]
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="visual/damage_zone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.133222)
+shape = SubResource("BoxShape3D_pkw3v")
+
+[node name="Hitbox" type="Area3D" parent="." groups=["HITBOX"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox"]
+shape = SubResource("SphereShape3D_65olb")
+
+[connection signal="timeout" from="movement_change" to="." method="_on_movement_change_timeout"]
+[connection signal="timeout" from="charge" to="." method="_on_charge_timeout"]
+[connection signal="area_entered" from="visual/damage_zone" to="." method="_on_damage_zone_area_entered"]

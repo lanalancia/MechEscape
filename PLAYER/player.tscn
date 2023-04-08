@@ -1,6 +1,7 @@
 [gd_scene load_steps=26 format=3 uid="uid://cdgmyqcnpbbpx"]
 
 [ext_resource type="Script" path="res://PLAYER/player.gd" id="1_0akw1"]
+[ext_resource type="Material" uid="uid://bqm4blkw3ds81" path="res://materials/Surfaces/Military_green.tres" id="2_emn5d"]
 [ext_resource type="PackedScene" uid="uid://c0xi4ubm0c4p0" path="res://PLAYER/Shooter/shooter_pew_pew.tscn" id="2_j1t3u"]
 [ext_resource type="LightmapGIData" uid="uid://d2f0n6sqorxop" path="res://PLAYER/player.lmbake" id="2_k4den"]
 
@@ -11,9 +12,6 @@ height = 2.20507
 [sub_resource type="BoxMesh" id="BoxMesh_7vxak"]
 lightmap_size_hint = Vector2i(14, 21)
 add_uv2 = true
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_766g6"]
-albedo_color = Color(0.0352941, 0.231373, 0, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cw24b"]
 albedo_color = Color(1, 0.768627, 0, 1)
@@ -630,14 +628,14 @@ transform = Transform3D(-0.844305, 0, -3.63968e-08, 0, 0.603598, 0, 7.38115e-08,
 cast_shadow = 0
 mesh = SubResource("BoxMesh_7vxak")
 skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("StandardMaterial3D_766g6")
+surface_material_override/0 = ExtResource("2_emn5d")
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="torso/Ribcage"]
 transform = Transform3D(-0.27783, -8.78706e-09, -3.27179e-08, 0, 0.206236, -0.182396, 2.42887e-08, -0.100512, -0.37425, -1.40364e-08, 1.80441, -0.160558)
 cast_shadow = 0
 mesh = SubResource("BoxMesh_7vxak")
 skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("StandardMaterial3D_766g6")
+surface_material_override/0 = ExtResource("2_emn5d")
 
 [node name="MeshInstance3D10" type="MeshInstance3D" parent="torso/Ribcage"]
 transform = Transform3D(-0.439739, -2.056e-09, -4.19479e-09, 0, 0.0482551, -0.0233852, 3.84432e-08, -0.0235179, -0.0479828, -1.40364e-08, 1.86661, -0.0539977)
@@ -679,13 +677,13 @@ transform = Transform3D(1.27346, 0, 0, 0, 0.256065, 0, 0, 0, 0.359796, 0, 1.9107
 cast_shadow = 0
 mesh = SubResource("PrismMesh_avyi8")
 skeleton = NodePath("../../handr")
-surface_material_override/0 = SubResource("StandardMaterial3D_766g6")
+surface_material_override/0 = ExtResource("2_emn5d")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="torso"]
 transform = Transform3D(-0.328224, 1.90317e-08, -1.26996e-08, -3.45569e-09, 0.47738, 0.0793803, 2.84854e-08, 0.277206, -0.136701, 1.14264e-08, 1.07444, 0.168514)
 cast_shadow = 0
 mesh = SubResource("BoxMesh_7vxak")
-surface_material_override/0 = SubResource("StandardMaterial3D_766g6")
+surface_material_override/0 = ExtResource("2_emn5d")
 
 [node name="handl" type="Node3D" parent="torso"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.884, 1.432, 0.249)
@@ -743,7 +741,7 @@ transform = Transform3D(0.659101, -0.0808399, 0, 0.242502, 0.219716, 0, 0, 0, 0.
 cast_shadow = 0
 mesh = SubResource("BoxMesh_1k6la")
 skeleton = NodePath("../../handr")
-surface_material_override/0 = SubResource("StandardMaterial3D_766g6")
+surface_material_override/0 = ExtResource("2_emn5d")
 
 [node name="shoulder_r" type="Node3D" parent="torso"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.245, 1.647, 0.26)
@@ -753,7 +751,7 @@ transform = Transform3D(0.667655, 0.0572967, 0, -0.245649, 0.155728, 0, 0, 0, 0.
 cast_shadow = 0
 mesh = SubResource("BoxMesh_1k6la")
 skeleton = NodePath("../../handr")
-surface_material_override/0 = SubResource("StandardMaterial3D_766g6")
+surface_material_override/0 = ExtResource("2_emn5d")
 
 [node name="ray_l" type="RayCast3D" parent="torso"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.38445, -0.547722)
