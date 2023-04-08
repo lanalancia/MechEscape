@@ -19,7 +19,7 @@ lightmap_size_hint = Vector2i(14, 21)
 add_uv2 = true
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6vkqj"]
-size = Vector3(1, 8.15641, 11.48)
+size = Vector3(1, 8.15641, 15.0663)
 
 [node name="chunk" type="Node3D"]
 script = ExtResource("1_qyde3")
@@ -28,8 +28,8 @@ PLAYER_SPAWN = NodePath("player_spawn")
 [node name="Attach_points" type="Node3D" parent="."]
 
 [node name="chunk_spawner" parent="Attach_points" instance=ExtResource("2_c1mws")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.83133)
-spawnable_chunks = Array[int]([4, 1, 1, 2, 2, 1, 2])
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -13.4851)
+spawnable_chunks = Array[int]([1, 1, 1, 2, 3])
 
 [node name="Geometry" type="Node3D" parent="."]
 
@@ -45,6 +45,18 @@ mesh = SubResource("BoxMesh_qntw6")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("4_kblhx")
 
+[node name="House8" type="MeshInstance3D" parent="Geometry"]
+transform = Transform3D(3.58881, -0.0426999, 0.012669, 0.0153477, 9.99924, -0.00645039, -0.0124882, 0.0179035, 3.63284, -5.80753, 0.181623, -12.105)
+mesh = SubResource("BoxMesh_qntw6")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("4_kblhx")
+
+[node name="House9" type="MeshInstance3D" parent="Geometry"]
+transform = Transform3D(3.59356, -0.595348, 0.0128793, 0.14239, 14.5102, -0.846746, 0.0210469, 3.48324, 3.52951, -5.80753, 0.181623, -7.8928)
+mesh = SubResource("BoxMesh_qntw6")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("4_kblhx")
+
 [node name="House5" type="MeshInstance3D" parent="Geometry"]
 transform = Transform3D(3.38972, -3.28444, 0.0140764, 1.11475, 8.89151, -1.22028, 0.383599, 3.18443, 3.42176, -6.23347, -1.09029, -0.971149)
 mesh = SubResource("BoxMesh_qntw6")
@@ -53,6 +65,18 @@ surface_material_override/0 = ExtResource("4_kblhx")
 
 [node name="House6" type="MeshInstance3D" parent="Geometry"]
 transform = Transform3D(0.386239, -1.74883, 3.55544, 1.95929, 8.33049, 0.322757, -2.98194, 5.24705, 0.672591, 6.93613, -0.289725, -0.649177)
+mesh = SubResource("BoxMesh_qntw6")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("4_kblhx")
+
+[node name="House10" type="MeshInstance3D" parent="Geometry"]
+transform = Transform3D(0.448145, -2.02913, 4.12531, 3.166, 7.52687, 0.136259, -2.66744, 8.5928, 0.854804, 6.93613, -0.289725, -8.85205)
+mesh = SubResource("BoxMesh_qntw6")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("4_kblhx")
+
+[node name="House11" type="MeshInstance3D" parent="Geometry"]
+transform = Transform3D(0.428108, -3.92879, 2.70429, 0.0111128, 22.1145, 0.485262, -3.95479, -0.363143, 0.294105, 7.54425, -0.289725, -12.4791)
 mesh = SubResource("BoxMesh_qntw6")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("4_kblhx")
@@ -70,13 +94,13 @@ skeleton = NodePath("")
 surface_material_override/0 = ExtResource("4_kblhx")
 
 [node name="House4" type="MeshInstance3D" parent="Geometry"]
-transform = Transform3D(3.58881, -0.0426999, 0.012669, 0.0153477, 9.99924, -0.00645039, -0.0124882, 0.0179035, 3.63284, 5.5601, 1.76359, -3.18628)
+transform = Transform3D(3.58856, -0.0429761, -0.0444581, 0.0153477, 9.99924, -0.00645039, 0.0439466, 0.0172298, 3.63259, 5.5601, 1.76359, -3.18628)
 mesh = SubResource("BoxMesh_qntw6")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("4_kblhx")
 
 [node name="player_spawn" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.129426, 0.734338, -1.932)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.129426, 0.734338, -1.45033)
 
 [node name="Player_detection_area" parent="." instance=ExtResource("6_npnv1")]
 
@@ -103,11 +127,11 @@ editor_only = true
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1.70698, 0.508714)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1.70698, -6.19912)
 shape = SubResource("BoxShape3D_6vkqj")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1.70698, 0.508714)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1.70698, -6.16991)
 shape = SubResource("BoxShape3D_6vkqj")
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="StaticBody3D"]
