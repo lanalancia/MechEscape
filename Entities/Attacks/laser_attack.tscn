@@ -1,0 +1,49 @@
+[gd_scene load_steps=6 format=3 uid="uid://5wutvh7atg05"]
+
+[ext_resource type="Script" path="res://Entities/Attacks/laser_attack.gd" id="1_b6w7l"]
+[ext_resource type="Material" uid="uid://dvfbeouug53an" path="res://materials/Indication/flat_red.tres" id="1_qt1gy"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_yrlti"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_blx5p"]
+transparency = 1
+albedo_color = Color(1, 0, 0, 0.403922)
+backlight_enabled = true
+backlight = Color(0.454902, 0.454902, 0.454902, 1)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_pgrgr"]
+height = 39.0023
+radius = 0.195139
+
+[node name="laser_attack" type="Area3D"]
+script = ExtResource("1_b6w7l")
+
+[node name="Visual" type="Node3D" parent="."]
+
+[node name="aim" type="MeshInstance3D" parent="Visual"]
+transform = Transform3D(0.370142, 0, 0, 0, -8.51947e-07, 0.370142, 0, -19.4903, -1.61794e-08, 0, -8.26761e-07, -18.9141)
+mesh = SubResource("CylinderMesh_yrlti")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_blx5p")
+
+[node name="charge" type="MeshInstance3D" parent="Visual"]
+transform = Transform3D(1.26713, 0, 0, 0, -8.51947e-07, 1.26713, 0, -19.4903, -5.53882e-08, 0, -8.26761e-07, -18.9141)
+mesh = SubResource("CylinderMesh_yrlti")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("1_qt1gy")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -8.33369e-07, -19.0653)
+shape = SubResource("CylinderShape3D_pgrgr")
+
+[node name="step1" type="Timer" parent="."]
+wait_time = 0.6
+one_shot = true
+autostart = true
+
+[node name="step2" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true
+
+[connection signal="timeout" from="step1" to="." method="_on_step_1_timeout"]
+[connection signal="timeout" from="step2" to="." method="_on_step_2_timeout"]
