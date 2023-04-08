@@ -18,7 +18,7 @@ radius = 0.119422
 
 [sub_resource type="SphereMesh" id="SphereMesh_87h01"]
 
-[node name="plasmaball" type="Area3D"]
+[node name="plasmaball" type="Area3D" groups=["PROJECTILE"]]
 script = ExtResource("1_8j77f")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
