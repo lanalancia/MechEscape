@@ -65,6 +65,9 @@ transform = Transform3D(0.0673025, 0, 0, 0, -0.00748945, 0.0668871, 0, -0.067097
 cast_shadow = 0
 mesh = SubResource("BoxMesh_jmrnb")
 
+[node name="shooter" type="Marker3D" parent="Visual"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.13234, -0.616152)
+
 [node name="entity_scan" type="Area3D" parent="."]
 monitorable = false
 
@@ -79,12 +82,17 @@ autostart = true
 wait_time = 3.0
 autostart = true
 
-[node name="hitbox" type="Area3D" parent="." groups=["EVIL", "HITBOX"]]
+[node name="hitbox" type="Area3D" parent="." groups=["ENEMY", "HITBOX"]]
 monitoring = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="hitbox"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.784331, 0)
 shape = SubResource("CylinderShape3D_ppdt8")
 
+[node name="stun" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
 [connection signal="timeout" from="Timer" to="." method="calculate_movement_direction"]
 [connection signal="timeout" from="wander" to="." method="_on_wander_timeout"]
+[connection signal="timeout" from="stun" to="." method="_on_stun_timeout"]
