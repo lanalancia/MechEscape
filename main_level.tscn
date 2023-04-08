@@ -60,12 +60,6 @@ color = Color(0, 0.721569, 1, 1)
 CONTROLLER = NodePath("../UI/Touch_controler")
 CAMERA_RAILS = NodePath("../Camera_rails")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.97732, -0.108844, -0.181656, 0.211768, 0.502319, 0.83835, 0, -0.857805, 0.513976, 0, 8.17728, 0)
-light_indirect_energy = 0.0
-light_cull_mask = 4293918721
-editor_only = true
-
 [node name="Camera_rails" type="Node3D" parent="."]
 
 [node name="top" type="Marker3D" parent="Camera_rails"]
