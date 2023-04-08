@@ -1,6 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://djmilspquc4y"]
+[gd_scene load_steps=7 format=3 uid="uid://cx2lkrxnrd4ps"]
 
-[ext_resource type="Script" path="res://Troop.gd" id="1_2tlsu"]
+[ext_resource type="Script" path="res://Entities/Troop.gd" id="1_bv4sx"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_y7hkq"]
 radius = 0.330875
@@ -17,7 +17,7 @@ radius = 8.0
 height = 1.32924
 
 [node name="Troop" type="CharacterBody3D" groups=["ENEMY", "walking"]]
-script = ExtResource("1_2tlsu")
+script = ExtResource("1_bv4sx")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.775378, 0)
