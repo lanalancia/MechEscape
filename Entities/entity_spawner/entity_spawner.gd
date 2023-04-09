@@ -8,4 +8,4 @@ func _ready():
 				var new_entity = s.spawnable_entities.pick_random().instantiate()
 				new_entity.global_transform = s.global_transform
 				get_node("/root/Main_level/enemies").add_child(new_entity)
-			queue_free()
+			#queue_free()

@@ -90,7 +90,7 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7, 2, 
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 7)
 
 [node name="floor" type="MeshInstance3D" parent="."]
-transform = Transform3D(37.4584, 0, 0, 0, 0.451, 0, 0, 0, 39.7757, -0.583807, -0.429605, 0.0818969)
+transform = Transform3D(1000, 0, 0, 0, 0.451, 0, 0, 0, 1000, -0.583807, -0.429605, 0.0818969)
 mesh = SubResource("BoxMesh_qbcdi")
 skeleton = NodePath("StaticBody3D")
 surface_material_override/0 = SubResource("StandardMaterial3D_fxchy")
