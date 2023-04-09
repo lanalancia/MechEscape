@@ -1,7 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://tsls61t1x7c4"]
+[gd_scene load_steps=14 format=3 uid="uid://tsls61t1x7c4"]
 
 [ext_resource type="Script" path="res://main_level.gd" id="1_6i1ro"]
 [ext_resource type="PackedScene" uid="uid://vfium5r5i4lm" path="res://UI/Controller/touch_controler.tscn" id="1_apbtu"]
+[ext_resource type="PackedScene" uid="uid://d4mhvafvcyvwi" path="res://chunks/RuinedCity/City_chunk_0.tscn" id="2_mj8ow"]
+[ext_resource type="PackedScene" uid="uid://cdgmyqcnpbbpx" path="res://PLAYER/player.tscn" id="3_mjqbl"]
+[ext_resource type="PackedScene" uid="uid://covvf1c1qcvka" path="res://Entities/Artillery_strike/artillery_strike_event.tscn" id="5_43wdd"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_aqj8v"]
 
@@ -11,17 +14,96 @@ sky_material = SubResource("ProceduralSkyMaterial_aqj8v")
 [sub_resource type="Environment" id="Environment_vcfff"]
 background_mode = 2
 sky = SubResource("Sky_c0br3")
+ambient_light_color = Color(1, 1, 1, 1)
+reflected_light_source = 1
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ajmdn"]
+size = Vector2(200, 100)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_wh86t"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_qbcdi"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fxchy"]
+shading_mode = 0
+albedo_color = Color(0.592157, 0.462745, 0.337255, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_64n4w"]
 
 [node name="Main_level" type="Node3D"]
 script = ExtResource("1_6i1ro")
-
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.22253)
-current = true
+initial_cnunk = ExtResource("2_mj8ow")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_vcfff")
 
-[node name="Node2D" type="Node2D" parent="."]
+[node name="UI" type="Node2D" parent="."]
 
-[node name="Touch_controler" parent="Node2D" instance=ExtResource("1_apbtu")]
+[node name="Touch_controler" parent="UI" instance=ExtResource("1_apbtu")]
+
+[node name="healthbar" type="Node2D" parent="UI"]
+
+[node name="ColorRect" type="ColorRect" parent="UI/healthbar"]
+offset_left = 34.0
+offset_top = 33.0
+offset_right = 534.0
+offset_bottom = 73.0
+scale = Vector2(0.639999, 1)
+color = Color(0, 0, 0, 1)
+
+[node name="HP" type="Node2D" parent="UI/healthbar"]
+position = Vector2(42, 39)
+scale = Vector2(3.04, 0.6)
+
+[node name="hp_line" type="ColorRect" parent="UI/healthbar/HP"]
+offset_right = 100.0
+offset_bottom = 40.0
+color = Color(0, 0.721569, 1, 1)
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="UI"]
+visible = false
+position = Vector2(469, 121)
+texture_normal = SubResource("PlaceholderTexture2D_ajmdn")
+texture_pressed = SubResource("ViewportTexture_wh86t")
+
+[node name="Label" type="Label" parent="UI/TouchScreenButton"]
+offset_right = 40.0
+offset_bottom = 23.0
+scale = Vector2(3.77171, 3.77171)
+text = "RETRY"
+
+[node name="chunks" type="Node3D" parent="."]
+
+[node name="PLAYER" parent="." instance=ExtResource("3_mjqbl")]
+CONTROLLER = NodePath("../UI/Touch_controler")
+CAMERA_RAILS = NodePath("../Camera_rails")
+
+[node name="Camera_rails" type="Node3D" parent="."]
+
+[node name="top" type="Marker3D" parent="Camera_rails"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 7, 0)
+
+[node name="side" type="Marker3D" parent="Camera_rails"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7, 2, 0)
+
+[node name="back" type="Marker3D" parent="Camera_rails"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 7)
+
+[node name="floor" type="MeshInstance3D" parent="."]
+transform = Transform3D(37.4584, 0, 0, 0, 0.451, 0, 0, 0, 39.7757, -0.583807, -0.429605, 0.0818969)
+mesh = SubResource("BoxMesh_qbcdi")
+skeleton = NodePath("StaticBody3D")
+surface_material_override/0 = SubResource("StandardMaterial3D_fxchy")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="floor"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floor/StaticBody3D"]
+shape = SubResource("BoxShape3D_64n4w")
+
+[node name="bullets" type="Node3D" parent="."]
+
+[node name="enemies" type="Node3D" parent="."]
+
+[node name="Artillery_strike_event" parent="." instance=ExtResource("5_43wdd")]
+
+[connection signal="pressed" from="UI/TouchScreenButton" to="." method="_on_touch_screen_button_pressed"]

@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://81innv3cd1w5"]
+
+[ext_resource type="Script" path="res://Entities/entity_spawner/spawnpoint.gd" id="1_nj3l1"]
+[ext_resource type="Material" uid="uid://dvfbeouug53an" path="res://materials/Indication/flat_red.tres" id="2_jnxhu"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_ttu04"]
+
+[node name="spawnpoint" type="Marker3D" groups=["SPAWNPOINT"]]
+script = ExtResource("1_nj3l1")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.583234, 0, 0, 0, 0.583234, 0, 0, 0, 0.583234, 0, 0.832778, 0)
+mesh = SubResource("CapsuleMesh_ttu04")
+surface_material_override/0 = ExtResource("2_jnxhu")
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(0.572033, 0, 0, 0, 0.572033, 0, 0, 0, 0.572033, 0, 1.57277, 0)
+billboard = 1
+text = "Enemy"
+font_size = 72

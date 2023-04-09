@@ -51,6 +51,11 @@ func _process(delta: float) -> void:
 		
 
 func _input(event: InputEvent) -> void:
+	if event is InputEventScreenTouch and event.is_pressed():
+		var event_dist_from_center = (event.position - global_position).length()
+		if event_dist_from_center <= boundary * global_scale.x or event.get_index() == ongoing_drag:
+			global_position = event.position
+		
 	if event is InputEventScreenDrag or ( event is InputEventScreenTouch and event.is_pressed()):
 		var event_dist_from_center = (event.position - global_position).length()
 
@@ -61,12 +66,17 @@ func _input(event: InputEvent) -> void:
 				touch.position = get_button_pos().normalized() * boundary - radius
 
 			ongoing_drag = event.get_index()
-			emit_signal(\"analogic_chage\", get_button_pos().normalized())
+			
+			
+			if get_button_pos().length() > boundary:
+				emit_signal(\"analogic_chage\", get_button_pos().normalized())
+			else:
+				emit_signal(\"analogic_chage\", get_button_pos() / boundary)
 
 	if event is InputEventScreenTouch and not event.is_pressed() and event.get_index() == ongoing_drag:
 		ongoing_drag = -1
 		emit_signal(\"analogic_chage\", Vector2.ZERO)
-		
+		position = Vector2.ZERO
 
 func get_button_pos() -> Vector2:
 	return touch.position + radius
@@ -83,13 +93,13 @@ func get_value() -> Vector2:
 script = ExtResource("1_dwoyb")
 
 [node name="lpos" type="Marker2D" parent="."]
-position = Vector2(141, 491)
+position = Vector2(141, 348)
 
 [node name="virtual_joystick" type="Node2D" parent="lpos"]
 script = SubResource("GDScript_5c0aj")
 
 [node name="rpos" type="Marker2D" parent="."]
-position = Vector2(998, 491)
+position = Vector2(998, 348)
 
 [node name="virtual_joystick" type="Node2D" parent="rpos"]
 script = SubResource("GDScript_5c0aj")

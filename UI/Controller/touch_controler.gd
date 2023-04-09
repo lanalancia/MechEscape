@@ -4,8 +4,8 @@ var lvalue = Vector2()
 var rvalue = Vector2()
 
 var screen_scale_factor
-var margin_sticks = Vector2(200, 128)
-var resize_sticks = 2
+var margin_sticks = Vector2(200, 256)
+var resize_sticks = 1.7
 
 func _ready():
 	adjust_sticks()
