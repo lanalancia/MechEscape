@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://cdgmyqcnpbbpx"]
+[gd_scene load_steps=27 format=3 uid="uid://cdgmyqcnpbbpx"]
 
 [ext_resource type="Script" path="res://PLAYER/player.gd" id="1_0akw1"]
 [ext_resource type="Material" uid="uid://bqm4blkw3ds81" path="res://materials/Surfaces/Military_green.tres" id="2_emn5d"]
@@ -612,6 +612,9 @@ _data = {
 "walk": SubResource("Animation_8m5xk")
 }
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_j6u7h"]
+radius = 12.0
+
 [node name="PLAYER" type="CharacterBody3D" groups=["PLAYER"]]
 script = ExtResource("1_0akw1")
 
@@ -879,4 +882,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.407422, 1.97843, 0.0254708)
 [node name="Marker3D5" type="Marker3D" parent="hitbox/damage_visualisation_points"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.410672, 0.411468, -0.556297)
 
+[node name="aim_assist" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="aim_assist"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.39491, 0)
+shape = SubResource("SphereShape3D_j6u7h")
+
 [connection signal="timeout" from="input_lock" to="." method="_on_input_lock_timeout"]
+[connection signal="area_entered" from="aim_assist" to="." method="_on_aim_assist_area_entered"]
+[connection signal="area_exited" from="aim_assist" to="." method="_on_aim_assist_area_exited"]

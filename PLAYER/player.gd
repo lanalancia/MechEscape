@@ -13,6 +13,8 @@ var health = 100
 
 var alive = true
 
+var nearby_enemies = []
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
@@ -22,6 +24,8 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 var camera_mode = 0
 var EXPLOSION = preload("res://FX/explossion_fx.tscn")
+
+var aim_asist = false
 
 func _ready():
 	$torso/ray_l.add_exception(self)
@@ -92,11 +96,29 @@ func _physics_process(delta):
 				pass
 			_:
 				pass
-		animate(camera_mode)
-	
+		
+		#Aim assist, TODO
+		if aim_asist:
+			var closest_enemy = null
+			var closest_dot = 0.996
+			for e in nearby_enemies:
+				if weakref(e).get_ref():
+					var vector_direction_l = e.global_position - $torso/handl.global_position
+					var try_dot = vector_direction_l.dot(-$torso.global_transform.basis.z)
+					if try_dot > closest_dot:
+						closest_enemy = e
+						closest_dot = try_dot
+			
+			if closest_enemy != null:
+				$torso/handl.look_at(closest_enemy.global_position, Vector3(1, 0, 0))
+				$torso/handl.look_at(closest_enemy.global_position, Vector3(0, 1, 0))
+			else:
+				$torso/handl.rotation *= 0
+			
 		if get_node(CONTROLLER).get_values()[1].length() > 0.8:
 			$torso/handl/shooter.shoot()
 			$torso/handr/shooter.shoot()
+		animate(camera_mode)
 	
 	var repel_wall_vector = Vector2()
 	repel_wall_vector.x += (int($torso/ray_l.is_colliding()) + -int($torso/ray_r.is_colliding())) * 0.3
@@ -216,3 +238,16 @@ func lock_input():
 
 func _on_input_lock_timeout():
 	input_lock = false
+
+
+func _on_aim_assist_area_entered(area):
+	if area.is_in_group("HITBOX") and area.get_parent().is_in_group("ENEMY"):
+		#nearby_enemies.append(area.get_parent())
+		#TODO
+		pass
+
+
+func _on_aim_assist_area_exited(area):
+	if area.is_in_group("HITBOX") and area.get_parent().is_in_group("ENEMY"):
+		nearby_enemies.remove_at( nearby_enemies.find(area.get_parent()) )
+	pass # Replace with function body.
