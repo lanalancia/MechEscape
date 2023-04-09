@@ -16,6 +16,8 @@ background_mode = 2
 sky = SubResource("Sky_c0br3")
 ambient_light_color = Color(1, 1, 1, 1)
 reflected_light_source = 1
+adjustment_enabled = true
+adjustment_brightness = 1.7
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ajmdn"]
 size = Vector2(200, 100)
@@ -60,13 +62,13 @@ offset_right = 100.0
 offset_bottom = 40.0
 color = Color(0, 0.721569, 1, 1)
 
-[node name="TouchScreenButton" type="TouchScreenButton" parent="UI"]
+[node name="Retry" type="TouchScreenButton" parent="UI"]
 visible = false
 position = Vector2(469, 121)
 texture_normal = SubResource("PlaceholderTexture2D_ajmdn")
 texture_pressed = SubResource("ViewportTexture_wh86t")
 
-[node name="Label" type="Label" parent="UI/TouchScreenButton"]
+[node name="Label" type="Label" parent="UI/Retry"]
 offset_right = 40.0
 offset_bottom = 23.0
 scale = Vector2(3.77171, 3.77171)
@@ -106,4 +108,4 @@ shape = SubResource("BoxShape3D_64n4w")
 
 [node name="Artillery_strike_event" parent="." instance=ExtResource("5_43wdd")]
 
-[connection signal="pressed" from="UI/TouchScreenButton" to="." method="_on_touch_screen_button_pressed"]
+[connection signal="pressed" from="UI/Retry" to="." method="_on_touch_screen_button_pressed"]
