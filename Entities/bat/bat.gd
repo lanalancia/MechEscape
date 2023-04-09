@@ -17,26 +17,26 @@ func _physics_process(delta):
 		kill()
 	var input_dir = wander_direction * 4
 	if !is_charging:
-		if (global_position - (PLAYER.global_position + Vector3(0, 1, 0))).length() < 8:
+		if (global_position - (PLAYER.global_position + Vector3(0, 1.432, 0))).length() < 4:
 			is_hunting = true
 			SPEED = 3
 		else:
 			is_hunting = false
-			SPEED = 2
+			SPEED = 1
 	
-	input_dir -= (global_position - (PLAYER.global_position + Vector3(0, 1, 0))) * 0.1
+	input_dir -= (global_position - (PLAYER.global_position + Vector3(0, 1.432, 0))) * 0.1
 	
 	if is_hunting:
 		$visual.look_at(PLAYER.global_position, global_transform.basis.y)
 		if PLAYER.camera_mode == 0:
-			input_dir.y -= (global_position - (PLAYER.global_position + Vector3(0, 1, 0))).y * 5
+			input_dir.y -= (global_position - (PLAYER.global_position + Vector3(0, 1.432, 0))).y * 5
 		
 		if randi()%150 == 0:
 			$visual.rotation = Vector3()
 			is_charging = true
 			is_hunting = false
-			look_at((PLAYER.global_position + Vector3(0, 1, 0)), global_transform.basis.x)
-			look_at((PLAYER.global_position + Vector3(0, 1, 0)), global_transform.basis.y)
+			look_at((PLAYER.global_position + Vector3(0, 1.432, 0)), global_transform.basis.x)
+			look_at((PLAYER.global_position + Vector3(0, 1.432, 0)), global_transform.basis.y)
 			rotation.z = 0
 			$charge.start()
 			$visual/damage_zone.set_deferred("monitoring", true)
@@ -46,7 +46,7 @@ func _physics_process(delta):
 	input_dir = input_dir.normalized()
 	$visual/Blade.visible = is_charging
 	if is_charging:
-		velocity = -global_transform.basis.z * SPEED
+		velocity = -global_transform.basis.z * 4.5
 	else:
 		velocity.x = input_dir.x * SPEED
 		velocity.y = input_dir.y * SPEED

@@ -4,3 +4,4 @@ extends Marker3D
 
 func _ready():
 	hide()
+	pass

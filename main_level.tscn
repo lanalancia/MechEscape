@@ -16,6 +16,8 @@ background_mode = 2
 sky = SubResource("Sky_c0br3")
 ambient_light_color = Color(1, 1, 1, 1)
 reflected_light_source = 1
+adjustment_enabled = true
+adjustment_brightness = 1.7
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ajmdn"]
 size = Vector2(200, 100)
@@ -60,17 +62,26 @@ offset_right = 100.0
 offset_bottom = 40.0
 color = Color(0, 0.721569, 1, 1)
 
-[node name="TouchScreenButton" type="TouchScreenButton" parent="UI"]
+[node name="Retry" type="TouchScreenButton" parent="UI"]
 visible = false
 position = Vector2(469, 121)
 texture_normal = SubResource("PlaceholderTexture2D_ajmdn")
 texture_pressed = SubResource("ViewportTexture_wh86t")
 
-[node name="Label" type="Label" parent="UI/TouchScreenButton"]
+[node name="Label" type="Label" parent="UI/Retry"]
 offset_right = 40.0
 offset_bottom = 23.0
 scale = Vector2(3.77171, 3.77171)
 text = "RETRY"
+
+[node name="rooms" type="Label" parent="UI/Retry"]
+offset_left = -107.0
+offset_top = 91.0
+offset_right = -4.99997
+offset_bottom = 117.0
+scale = Vector2(3.77171, 3.77171)
+text = "Total rooms: "
+horizontal_alignment = 1
 
 [node name="chunks" type="Node3D" parent="."]
 
@@ -90,7 +101,7 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7, 2, 
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 7)
 
 [node name="floor" type="MeshInstance3D" parent="."]
-transform = Transform3D(37.4584, 0, 0, 0, 0.451, 0, 0, 0, 39.7757, -0.583807, -0.429605, 0.0818969)
+transform = Transform3D(1000, 0, 0, 0, 0.451, 0, 0, 0, 1000, -0.583807, -0.429605, 0.0818969)
 mesh = SubResource("BoxMesh_qbcdi")
 skeleton = NodePath("StaticBody3D")
 surface_material_override/0 = SubResource("StandardMaterial3D_fxchy")
@@ -106,4 +117,4 @@ shape = SubResource("BoxShape3D_64n4w")
 
 [node name="Artillery_strike_event" parent="." instance=ExtResource("5_43wdd")]
 
-[connection signal="pressed" from="UI/TouchScreenButton" to="." method="_on_touch_screen_button_pressed"]
+[connection signal="pressed" from="UI/Retry" to="." method="_on_touch_screen_button_pressed"]

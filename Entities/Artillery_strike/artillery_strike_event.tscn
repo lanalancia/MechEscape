@@ -11,7 +11,7 @@ one_shot = true
 autostart = true
 
 [node name="markers" type="Node3D" parent="."]
-transform = Transform3D(0.2, 0, 0, 0, 1, 0, 0, 0, 0.2, 0, 0, 0)
+transform = Transform3D(0.25, 0, 0, 0, 1, 0, 0, 0, 0.25, 0, 0, 0)
 
 [node name="Marker3D" type="Marker3D" parent="markers"]
 transform = Transform3D(0.845203, -0.512532, 0.151473, -0.330799, -0.279088, 0.901489, -0.419767, -0.812048, -0.405431, 13.3235, 0, 1.64991)

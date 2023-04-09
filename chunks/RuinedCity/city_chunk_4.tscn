@@ -1,11 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://ccspbhbflj8qg"]
+[gd_scene load_steps=15 format=3 uid="uid://bljjmly1tovk4"]
 
 [ext_resource type="Script" path="res://chunks/base_chunk.gd" id="1_sohb2"]
 [ext_resource type="PackedScene" uid="uid://1rami4xbfxcq" path="res://chunks/chunk_spawner/chunk_spawner.tscn" id="2_kslys"]
 [ext_resource type="Material" uid="uid://d3kty78nggpna" path="res://materials/Surfaces/Concrete.tres" id="3_xp20p"]
 [ext_resource type="PackedScene" uid="uid://btfgffs76gg22" path="res://chunks/chunk_spawner/Player_detection_area.tscn" id="4_mblo8"]
 [ext_resource type="PackedScene" uid="uid://ctss3q7w3np4k" path="res://chunks/gates/falling_building.tscn" id="5_4mpg5"]
-[ext_resource type="LightmapGIData" uid="uid://b30ur37yv18qw" path="res://chunks/RuinedCity/city_chunk_2.lmbake" id="6_oqf2p"]
+[ext_resource type="LightmapGIData" uid="uid://cwbqs2ahvah1q" path="res://chunks/RuinedCity/city_chunk_4.lmbake" id="6_vcqfy"]
 [ext_resource type="PackedScene" uid="uid://clcn5hb3f7cvv" path="res://Entities/entity_spawner/entity_spawner.tscn" id="7_r1m65"]
 [ext_resource type="PackedScene" uid="uid://81innv3cd1w5" path="res://Entities/entity_spawner/spawnpoint.tscn" id="8_7fxix"]
 [ext_resource type="PackedScene" uid="uid://cx2lkrxnrd4ps" path="res://Entities/Troop/troop.tscn" id="9_4gjsf"]
@@ -37,7 +37,7 @@ spawnable_chunks = Array[int]([1, 2, 3, 4])
 [node name="Geometry" type="Node3D" parent="."]
 
 [node name="House" type="MeshInstance3D" parent="Geometry"]
-transform = Transform3D(3.61622, -0.0614542, 0.0127325, 0.0145811, 14.36, 0.239761, -0.0135979, -0.944833, 3.64317, -6.23117, -2.10251, -1.61526)
+transform = Transform3D(3.61622, -0.0614542, 0.0127325, 0.0145811, 14.36, 0.239761, -0.0135979, -0.944833, 3.64317, -5.43262, -2.10251, -1.61526)
 mesh = SubResource("BoxMesh_m8fuv")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("3_xp20p")
@@ -85,13 +85,13 @@ skeleton = NodePath("")
 surface_material_override/0 = ExtResource("3_xp20p")
 
 [node name="House12" type="MeshInstance3D" parent="Geometry"]
-transform = Transform3D(4.86275, -0.0886288, 0.0142258, 0.0260364, 17.7576, -1.95124, -0.00407815, 7.69122, 4.50521, -10.6072, 5.71049, -26.1663)
+transform = Transform3D(4.86275, -0.0886288, 0.0142258, 0.0250027, 18.7854, -1.17891, -0.00832994, 4.64702, 4.76597, -10.6072, 5.71049, -28.1514)
 mesh = SubResource("BoxMesh_m8fuv")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("3_xp20p")
 
 [node name="House2" type="MeshInstance3D" parent="Geometry"]
-transform = Transform3D(3.5431, -0.0633791, -0.614793, 0.0153742, 14.036, -0.00644577, 0.608856, 0.0143968, 3.57782, -5.56987, -4.48078, -10.5865)
+transform = Transform3D(4.75059, -0.0647742, -1.63933, 0.0214286, 14.0228, -0.00915224, 1.59364, 0.00453375, 4.88691, -7.14758, -4.48078, -10.1051)
 mesh = SubResource("BoxMesh_m8fuv")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("3_xp20p")
@@ -102,20 +102,14 @@ mesh = SubResource("BoxMesh_m8fuv")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("3_xp20p")
 
-[node name="House25" type="MeshInstance3D" parent="Geometry"]
-transform = Transform3D(3.27733, -0.0649643, -1.49206, 0.83978, 11.6303, 1.847, 1.21587, -7.85776, 2.7461, -16.2899, -4.48078, -11.9713)
-mesh = SubResource("BoxMesh_m8fuv")
-skeleton = NodePath("")
-surface_material_override/0 = ExtResource("3_xp20p")
-
 [node name="House28" type="MeshInstance3D" parent="Geometry"]
-transform = Transform3D(4.25077, -0.106858, -1.86462, -0.516439, 22.1685, -1.16353, 1.84571, 6.44896, 3.96876, -16.2899, -4.48078, -9.49474)
+transform = Transform3D(4.98453, -0.108108, -2.57828, -0.605586, 22.4279, -1.60886, 2.16431, 6.52442, 5.48776, -16.2899, -2.00686, -9.49474)
 mesh = SubResource("BoxMesh_m8fuv")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("3_xp20p")
 
 [node name="House5" type="MeshInstance3D" parent="Geometry"]
-transform = Transform3D(3.49796, 1.53609, -0.590507, -0.705057, 9.35344, -1.06798, 0.383599, 3.18443, 3.42176, -6.23347, 1.35703, -5.43959)
+transform = Transform3D(3.49796, 1.53609, -0.590507, -0.705057, 9.35344, -1.06798, 0.383599, 3.18443, 3.42176, -5.03913, 1.35703, -5.43959)
 mesh = SubResource("BoxMesh_m8fuv")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("3_xp20p")
@@ -133,13 +127,13 @@ skeleton = NodePath("")
 surface_material_override/0 = ExtResource("3_xp20p")
 
 [node name="House19" type="MeshInstance3D" parent="Geometry"]
-transform = Transform3D(-0.314295, -9.91526, -0.346152, 0.620427, -1.09321, 3.55606, -3.52083, 0.692467, 0.657534, 3.07278, -2.13505, -11.5329)
+transform = Transform3D(-0.314295, -9.91526, -0.346152, 0.620427, -1.09321, 3.55606, -3.52083, 0.692467, 0.657534, 3.07278, -1.38914, -11.5329)
 mesh = SubResource("BoxMesh_m8fuv")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("3_xp20p")
 
 [node name="House29" type="MeshInstance3D" parent="Geometry"]
-transform = Transform3D(-0.695439, -3.38807, -3.34469, -0.0087253, -9.38235, 1.25634, -3.52083, 0.692467, 0.657534, -6.57035, -5.56953, -19.7922)
+transform = Transform3D(-0.695439, -3.38807, -3.34469, -0.0087253, -9.38235, 1.25634, -3.52083, 0.692467, 0.657534, -6.57035, -4.34672, -19.7922)
 mesh = SubResource("BoxMesh_m8fuv")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("3_xp20p")
@@ -169,7 +163,7 @@ skeleton = NodePath("")
 surface_material_override/0 = ExtResource("3_xp20p")
 
 [node name="House21" type="MeshInstance3D" parent="Geometry"]
-transform = Transform3D(0.386239, -1.74883, 3.55544, 0.357475, 9.81285, 0.597302, -3.55007, 0.797838, 0.446969, -0.118728, -0.289725, -25.565)
+transform = Transform3D(0.386239, -1.74883, 3.55544, 0.357475, 9.81285, 0.597302, -3.55007, 0.797838, 0.446969, -0.118728, -0.289725, -22.9214)
 mesh = SubResource("BoxMesh_m8fuv")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("3_xp20p")
@@ -187,25 +181,31 @@ skeleton = NodePath("")
 surface_material_override/0 = ExtResource("3_xp20p")
 
 [node name="House26" type="MeshInstance3D" parent="Geometry"]
-transform = Transform3D(0.402601, -2.02267, 3.23575, 1.11197, 12.8835, 0.358516, -3.45494, 3.91085, 0.492448, -12.9628, -2.00072, -23.9125)
+transform = Transform3D(1.22439, -0.803785, 3.0959, 0.28361, 13.5657, 0.114793, -3.42864, 0.835088, 1.11506, -13.5149, -2.00072, -23.5931)
 mesh = SubResource("BoxMesh_m8fuv")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("3_xp20p")
 
 [node name="House27" type="MeshInstance3D" parent="Geometry"]
-transform = Transform3D(0.402601, -2.02267, 3.23575, -0.651841, 13.203, 0.548609, -3.57046, -2.63847, 0.264704, -14.2998, -1.73261, -14.7623)
+transform = Transform3D(0.891458, 0.359749, 3.19178, -0.703508, 13.3568, 0.0716964, -3.47067, -2.61502, 0.805293, -15.6172, -1.73261, -14.7033)
 mesh = SubResource("BoxMesh_m8fuv")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("3_xp20p")
 
 [node name="House23" type="MeshInstance3D" parent="Geometry"]
-transform = Transform3D(0.103004, -7.17399, 2.52856, 0.5161, 6.91985, 2.56989, -3.55007, 0.797838, 0.446969, -5.48848, -3.93854, -25.565)
+transform = Transform3D(1.0207, -7.13528, 2.32596, 0.5161, 6.91985, 2.56989, -3.40173, -1.09109, 1.0878, -5.48848, -2.91135, -23.8159)
 mesh = SubResource("BoxMesh_m8fuv")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("3_xp20p")
 
 [node name="House15" type="MeshInstance3D" parent="Geometry"]
-transform = Transform3D(3.58369, -0.0284392, 0.0126765, 0.0153258, 6.65975, -0.00645421, -0.0124704, 0.0119242, 3.63499, 5.5601, -0.412651, -22.0115)
+transform = Transform3D(3.58369, -0.0284392, 0.0126765, 0.0153258, 6.65975, -0.00645421, -0.0124704, 0.0119242, 3.63499, 5.72758, -0.412651, -22.0115)
+mesh = SubResource("BoxMesh_m8fuv")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("3_xp20p")
+
+[node name="House30" type="MeshInstance3D" parent="Geometry"]
+transform = Transform3D(3.58369, -0.0284392, 0.0126765, 0.0153258, 6.65975, -0.00645421, -0.0124704, 0.0119242, 3.63499, 3.8695, -2.19188, -23.0275)
 mesh = SubResource("BoxMesh_m8fuv")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("3_xp20p")
@@ -216,14 +216,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.129426, 0.734338, -6.87016)
 [node name="Player_detection_area" parent="." instance=ExtResource("4_mblo8")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player_detection_area"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -6.03505)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -4.29553)
 shape = SubResource("BoxShape3D_7p5n1")
 
 [node name="Falling_building" parent="." instance=ExtResource("5_4mpg5")]
-transform = Transform3D(-0.558544, 0, -4.88295e-08, 0, 0.558544, 0, 4.88295e-08, 0, -0.558544, 0, 0, 1.90477)
+transform = Transform3D(-0.558544, 0, -4.88295e-08, 0, 0.558544, 0, 4.88295e-08, 0, -0.558544, 0, 0, 0.706706)
 
 [node name="LightmapGI" type="LightmapGI" parent="."]
-light_data = ExtResource("6_oqf2p")
+light_data = ExtResource("6_vcqfy")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="LightmapGI"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 20, -4)

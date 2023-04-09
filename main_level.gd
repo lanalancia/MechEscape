@@ -3,7 +3,7 @@ extends Node3D
 
 @export var initial_cnunk : PackedScene
 @onready var PLAYER = $PLAYER 
-
+var points = -1
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#change_root_scene_to(load("res://chunks/TestingPlayground/playground_1.tscn"))
@@ -20,16 +20,20 @@ func _process(delta):
 	$floor.position.x = PLAYER.position.x
 	$floor.position.z = PLAYER.position.z
 	update_UI()
-	pass
+
 
 func update_UI():
-	var screen_scale = $UI.get_viewport_rect().size / Vector2(1152, 648)
+	var screen_scale = $UI.get_viewport_rect().size / Vector2(1152, 648) #Vector2(1152, 648)
 	var screen_scale_factor = (screen_scale.x + screen_scale.y) / 2
-	$UI/healthbar.scale = Vector2(1, 1) * screen_scale_factor
 	
+	$UI/healthbar.scale = Vector2(1, 1) * screen_scale_factor
 	$UI/healthbar/HP/hp_line.size.x = PLAYER.health
+	$UI/Retry.scale = Vector2(1, 1) * screen_scale_factor
+	$UI/Retry.position.x = 469 * screen_scale_factor
+	$UI/Retry.position.y = 121 * screen_scale_factor
 	if !PLAYER.alive:
-		$UI/TouchScreenButton.show()
+		$UI/Retry.show()
+		$UI/Retry/rooms.text = "Total rooms: " + str(points) 
 	pass
 
 func change_1root_scene_to(scene):
