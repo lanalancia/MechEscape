@@ -133,13 +133,13 @@ skeleton = NodePath("")
 surface_material_override/0 = ExtResource("3_xp20p")
 
 [node name="House19" type="MeshInstance3D" parent="Geometry"]
-transform = Transform3D(-0.314295, -9.91526, -0.346152, 0.620427, -1.09321, 3.55606, -3.52083, 0.692467, 0.657534, 3.07278, -2.68904, -11.5329)
+transform = Transform3D(-0.314295, -9.91526, -0.346152, 0.620427, -1.09321, 3.55606, -3.52083, 0.692467, 0.657534, 3.07278, -2.13505, -11.5329)
 mesh = SubResource("BoxMesh_m8fuv")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("3_xp20p")
 
 [node name="House29" type="MeshInstance3D" parent="Geometry"]
-transform = Transform3D(-0.695439, -3.38807, -3.34469, -0.0087253, -9.38235, 1.25634, -3.52083, 0.692467, 0.657534, -6.57035, -3.72197, -19.7922)
+transform = Transform3D(-0.695439, -3.38807, -3.34469, -0.0087253, -9.38235, 1.25634, -3.52083, 0.692467, 0.657534, -6.57035, -5.56953, -19.7922)
 mesh = SubResource("BoxMesh_m8fuv")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("3_xp20p")
@@ -187,13 +187,13 @@ skeleton = NodePath("")
 surface_material_override/0 = ExtResource("3_xp20p")
 
 [node name="House26" type="MeshInstance3D" parent="Geometry"]
-transform = Transform3D(0.402601, -2.02267, 3.23575, 1.11197, 12.8835, 0.358516, -3.45494, 3.91085, 0.492448, -12.9628, -2.00072, -23.8442)
+transform = Transform3D(0.402601, -2.02267, 3.23575, 1.11197, 12.8835, 0.358516, -3.45494, 3.91085, 0.492448, -12.9628, -2.00072, -23.9125)
 mesh = SubResource("BoxMesh_m8fuv")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("3_xp20p")
 
 [node name="House27" type="MeshInstance3D" parent="Geometry"]
-transform = Transform3D(0.402601, -2.02267, 3.23575, -0.651841, 13.203, 0.548609, -3.57046, -2.63847, 0.264704, -14.2998, -1.73261, -15.1993)
+transform = Transform3D(0.402601, -2.02267, 3.23575, -0.651841, 13.203, 0.548609, -3.57046, -2.63847, 0.264704, -14.2998, -1.73261, -14.7623)
 mesh = SubResource("BoxMesh_m8fuv")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("3_xp20p")
