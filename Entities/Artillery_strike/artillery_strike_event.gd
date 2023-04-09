@@ -7,7 +7,7 @@ var shoot_array = []
 var current_shot_idx = -1
 
 func _on_cooldown_timeout():
-	if get_node("/root/Main_level").PLAYER.camera_mode == 1:
+	if get_node("/root/Main_level").PLAYER.camera_mode == 0:
 		print("Incoming artillery strike!")
 		global_position = get_node("/root/Main_level").PLAYER.global_position
 		var shots = randi()%20+20
