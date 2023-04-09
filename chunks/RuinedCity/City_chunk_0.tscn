@@ -29,7 +29,7 @@ PLAYER_SPAWN = NodePath("player_spawn")
 
 [node name="chunk_spawner" parent="Attach_points" instance=ExtResource("2_c1mws")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -13.4851)
-spawnable_chunks = Array[int]([1, 1, 1, 2, 3, 7])
+spawnable_chunks = Array[int]([1, 1, 1, 2, 3, 7, 7, 7, 7, 7, 7, 7, 7])
 
 [node name="Geometry" type="Node3D" parent="."]
 
