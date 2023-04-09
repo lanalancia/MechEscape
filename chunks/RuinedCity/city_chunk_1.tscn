@@ -19,7 +19,7 @@ add_uv2 = true
 size = Vector3(9, 3, 6.17039)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_87sbp"]
-size = Vector3(1, 8.15641, 11.48)
+size = Vector3(1, 8.15641, 19.2726)
 
 [node name="Chunk" type="Node3D"]
 script = ExtResource("1_m8yrs")
@@ -28,7 +28,7 @@ GATES = NodePath("Falling_building")
 [node name="Attach_points" type="Node3D" parent="."]
 
 [node name="chunk_spawner" parent="Attach_points" instance=ExtResource("1_mgw30")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -9.76949)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -18.7695)
 spawnable_chunks = Array[int]([2, 3, 2, 4])
 
 [node name="Geometry" type="Node3D" parent="."]
@@ -69,6 +69,18 @@ mesh = SubResource("BoxMesh_m8fuv")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("3_ac35w")
 
+[node name="House14" type="MeshInstance3D" parent="Geometry"]
+transform = Transform3D(3.59501, -0.0599382, 0.0126599, 0.0142826, 13.9896, 0.294947, -0.0137429, -1.14018, 3.61823, -5.34343, -4.48078, -12.384)
+mesh = SubResource("BoxMesh_m8fuv")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("3_ac35w")
+
+[node name="House15" type="MeshInstance3D" parent="Geometry"]
+transform = Transform3D(5.0172, -0.0836499, 0.0176682, 0.0242177, 19.2705, -0.909334, -0.0133671, 3.51616, 4.98409, -6.77414, -4.48078, -17.7573)
+mesh = SubResource("BoxMesh_m8fuv")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("3_ac35w")
+
 [node name="House5" type="MeshInstance3D" parent="Geometry"]
 transform = Transform3D(3.49796, 1.53609, -0.590507, -0.705057, 9.35344, -1.06798, 0.383599, 3.18443, 3.42176, -5.75285, 2.44742, -4.80563)
 mesh = SubResource("BoxMesh_m8fuv")
@@ -89,6 +101,24 @@ surface_material_override/0 = ExtResource("3_ac35w")
 
 [node name="House4" type="MeshInstance3D" parent="Geometry"]
 transform = Transform3D(3.58369, -0.0284392, 0.0126765, 0.0153258, 6.65975, -0.00645421, -0.0124704, 0.0119242, 3.63499, 5.47352, -0.412651, -8.12444)
+mesh = SubResource("BoxMesh_m8fuv")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("3_ac35w")
+
+[node name="House11" type="MeshInstance3D" parent="Geometry"]
+transform = Transform3D(3.59416, -0.0478682, 0.0126611, 0.0153706, 11.2095, -0.00644638, -0.0125068, 0.0200705, 3.63058, 5.47352, -0.412651, -12.2413)
+mesh = SubResource("BoxMesh_m8fuv")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("3_ac35w")
+
+[node name="House13" type="MeshInstance3D" parent="Geometry"]
+transform = Transform3D(3.57361, -0.0455367, 0.387933, 0.0153706, 11.2095, -0.00644638, -0.384014, 0.0249117, 3.60982, 5.47352, -6.52563, -15.1852)
+mesh = SubResource("BoxMesh_m8fuv")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("3_ac35w")
+
+[node name="House12" type="MeshInstance3D" parent="Geometry"]
+transform = Transform3D(3.59412, -0.0793276, 0.0022534, 0.0230714, 9.67041, -1.83599, 0.0109381, 5.6686, 3.13216, 5.47352, -0.412651, -18.2822)
 mesh = SubResource("BoxMesh_m8fuv")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("3_ac35w")
@@ -117,32 +147,56 @@ editor_only = true
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1.70698, -4.49129)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1.70698, -9.67679)
 shape = SubResource("BoxShape3D_87sbp")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1.70698, -4.49129)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1.70698, -9.67679)
 shape = SubResource("BoxShape3D_87sbp")
 
 [node name="entity_spawner" parent="." instance=ExtResource("7_g5w54")]
 chance_empty = 0.13
 
 [node name="spawnpoint" parent="entity_spawner" instance=ExtResource("8_byj06")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.630387, 0, -4.24868)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.630387, 0, -9.04573)
 spawnable_entities = Array[PackedScene]([ExtResource("7_j6kby")])
 
 [node name="spawnpoint2" parent="entity_spawner" instance=ExtResource("8_byj06")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.800768, 0, -4.24868)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.800768, 0, -9.04573)
 spawnable_entities = Array[PackedScene]([ExtResource("7_j6kby")])
 
 [node name="spawnpoint3" parent="entity_spawner" instance=ExtResource("8_byj06")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0597787, 0, -3.18713)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0597787, 0, -7.98418)
+spawnable_entities = Array[PackedScene]([ExtResource("7_j6kby"), ExtResource("10_qlpwn")])
+
+[node name="spawnpoint6" parent="entity_spawner" instance=ExtResource("8_byj06")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.35327, 0, -3.68008)
+spawnable_entities = Array[PackedScene]([ExtResource("7_j6kby")])
+
+[node name="spawnpoint7" parent="entity_spawner" instance=ExtResource("8_byj06")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.78442, 0, -3.68008)
+spawnable_entities = Array[PackedScene]([ExtResource("7_j6kby")])
+
+[node name="spawnpoint8" parent="entity_spawner" instance=ExtResource("8_byj06")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.04343, 0, -2.61853)
+spawnable_entities = Array[PackedScene]([ExtResource("7_j6kby"), ExtResource("10_qlpwn")])
+
+[node name="spawnpoint9" parent="entity_spawner" instance=ExtResource("8_byj06")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9751, 0, -3.68008)
+spawnable_entities = Array[PackedScene]([ExtResource("7_j6kby")])
+
+[node name="spawnpoint10" parent="entity_spawner" instance=ExtResource("8_byj06")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.54394, 0, -3.68008)
+spawnable_entities = Array[PackedScene]([ExtResource("7_j6kby")])
+
+[node name="spawnpoint11" parent="entity_spawner" instance=ExtResource("8_byj06")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.28493, 0, -2.61853)
 spawnable_entities = Array[PackedScene]([ExtResource("7_j6kby"), ExtResource("10_qlpwn")])
 
 [node name="spawnpoint4" parent="entity_spawner" instance=ExtResource("8_byj06")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.05348, 0, -8.26472)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.05348, 0, -13.0618)
 spawnable_entities = Array[PackedScene]([ExtResource("10_qlpwn"), ExtResource("10_qlpwn"), ExtResource("7_j6kby")])
 
 [node name="spawnpoint5" parent="entity_spawner" instance=ExtResource("8_byj06")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.34548, 0, -8.26472)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.34548, 0, -13.0618)
 spawnable_entities = Array[PackedScene]([ExtResource("10_qlpwn")])

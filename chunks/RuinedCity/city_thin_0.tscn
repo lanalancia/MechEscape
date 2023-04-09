@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://buctrff2pva15"]
+[gd_scene load_steps=16 format=3 uid="uid://buctrff2pva15"]
 
 [ext_resource type="Script" path="res://chunks/base_chunk.gd" id="1_24wlr"]
 [ext_resource type="PackedScene" uid="uid://1rami4xbfxcq" path="res://chunks/chunk_spawner/chunk_spawner.tscn" id="2_fdwjq"]
@@ -28,6 +28,9 @@ size = Vector3(6, 21.1357, 6.03563)
 [sub_resource type="BoxShape3D" id="BoxShape3D_bs6po"]
 size = Vector3(1, 77.7784, 11.48)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_8yc8s"]
+size = Vector3(1, 77.7784, 24.1132)
+
 [node name="Chunk" type="Node3D"]
 script = ExtResource("1_24wlr")
 
@@ -35,7 +38,7 @@ script = ExtResource("1_24wlr")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.18531, 0, 0)
 
 [node name="chunk_spawner" parent="Attach_points" instance=ExtResource("2_fdwjq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.39836, 0, -9.76949)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.39836, 0, -22.7433)
 spawnable_chunks = Array[int]([5])
 
 [node name="Geometry" type="Node3D" parent="."]
@@ -83,6 +86,24 @@ mesh = SubResource("BoxMesh_m8fuv")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("3_ak6kn")
 
+[node name="House15" type="MeshInstance3D" parent="Geometry"]
+transform = Transform3D(3.61622, -0.0614542, 0.0127325, 0.0154649, 14.391, -0.00648272, -0.0125835, 0.025767, 3.65105, -10.6072, 2.04712, -21.8174)
+mesh = SubResource("BoxMesh_m8fuv")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("3_ak6kn")
+
+[node name="House16" type="MeshInstance3D" parent="Geometry"]
+transform = Transform3D(3.61146, -0.0425511, 0.0127395, 0.0154446, 9.96438, -0.00648626, -0.0125669, 0.0178412, 3.65304, -5.89534, 0.564844, -21.8174)
+mesh = SubResource("BoxMesh_m8fuv")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("3_ak6kn")
+
+[node name="House17" type="MeshInstance3D" parent="Geometry"]
+transform = Transform3D(2.85098, 6.11682, 0.0060197, -2.21695, 7.86608, -0.0129664, -0.0125669, 0.0178412, 3.65304, 4.65286, -3.18308, -21.8174)
+mesh = SubResource("BoxMesh_m8fuv")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("3_ak6kn")
+
 [node name="House2" type="MeshInstance3D" parent="Geometry"]
 transform = Transform3D(3.59501, -0.0599382, 0.0126599, 0.0153742, 14.036, -0.00644577, -0.0125098, 0.0251314, 3.63023, -5.34343, -4.48078, -8.2742)
 mesh = SubResource("BoxMesh_m8fuv")
@@ -95,8 +116,37 @@ mesh = SubResource("BoxMesh_m8fuv")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("3_ak6kn")
 
+[node name="House14" type="MeshInstance3D" parent="Geometry"]
+transform = Transform3D(-0.706832, -0.0130308, -3.58065, 0.0154649, 14.391, -0.00648272, 3.54649, -0.065351, -0.713613, -6.71765, 2.04712, -18.718)
+mesh = SubResource("BoxMesh_m8fuv")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("3_ak6kn")
+
+[node name="House4" type="MeshInstance3D" parent="Geometry"]
+transform = Transform3D(-0.702686, -0.0127094, -3.56024, 0.0153742, 14.036, -0.00644577, 3.52569, -0.0637389, -0.709544, -6.12208, -4.48078, -13.2261)
+mesh = SubResource("BoxMesh_m8fuv")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("3_ak6kn")
+
+[node name="House8" type="MeshInstance3D" parent="Geometry"]
+transform = Transform3D(-0.702686, -0.0127094, -3.56024, 0.0153742, 14.036, -0.00644577, 3.52569, -0.0637389, -0.709544, 0.644554, -6.66154, -17.0392)
+mesh = SubResource("BoxMesh_m8fuv")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("3_ak6kn")
+
+[node name="House6" type="MeshInstance3D" parent="Geometry"]
+transform = Transform3D(-1.07158, -3.42631, -3.23598, -0.705057, 9.35344, -1.06798, 3.3518, 0.872114, -1.2592, -9.34437, 2.44742, -14.7882)
+mesh = SubResource("BoxMesh_m8fuv")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("3_ak6kn")
+
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Geometry"]
 transform = Transform3D(0.0705922, 0, 0, 0, 1.23971, 0, 0, 0, 5.45784, -3.57728, 0, -6.75697)
+mesh = SubResource("BoxMesh_34t4r")
+surface_material_override/0 = SubResource("StandardMaterial3D_vvxjo")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Geometry"]
+transform = Transform3D(0.0705922, 0, 0, 0, 1.23971, 0, 0, 0, 12.1169, -3.57728, 0, -16.5407)
 mesh = SubResource("BoxMesh_34t4r")
 surface_material_override/0 = SubResource("StandardMaterial3D_vvxjo")
 
@@ -123,10 +173,6 @@ editor_only = true
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.18531, 0, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.540963, 1.70698, -4.49129)
-shape = SubResource("BoxShape3D_bs6po")
-
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="StaticBody3D"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4.80214, 1.70698, 0.800054)
 shape = SubResource("BoxShape3D_bs6po")
@@ -136,8 +182,12 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -9.918
 shape = SubResource("BoxShape3D_bs6po")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1.70698, -4.49129)
-shape = SubResource("BoxShape3D_bs6po")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.25211, 1.70698, -11.3763)
+shape = SubResource("BoxShape3D_8yc8s")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.26194, 1.70698, -11.3763)
+shape = SubResource("BoxShape3D_8yc8s")
 
 [node name="camera_mode_switcher" parent="." instance=ExtResource("6_akhmi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00567102, 0, -4.0154)

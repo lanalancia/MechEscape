@@ -72,7 +72,7 @@ skeleton = NodePath("")
 surface_material_override/0 = ExtResource("3_k14in")
 
 [node name="House6" type="MeshInstance3D" parent="Geometry"]
-transform = Transform3D(0.386239, -1.74883, 3.55544, 0.357475, 9.81285, 0.597302, -3.55007, 0.797838, 0.446969, 4.80499, -0.289725, -9.47788)
+transform = Transform3D(0.386239, -1.74883, 3.55544, 1.26412, 9.27199, 0.461265, -3.33658, 3.31041, 0.586332, 4.80499, 1.71027, -10.2879)
 mesh = SubResource("BoxMesh_m8fuv")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("3_k14in")
@@ -95,7 +95,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.129426, 0.734338, -6.87016)
 [node name="Player_detection_area" parent="." instance=ExtResource("4_g52b6")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player_detection_area"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -5.20418)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -3.04463)
 shape = SubResource("BoxShape3D_7p5n1")
 
 [node name="LightmapGI" type="LightmapGI" parent="."]
@@ -118,7 +118,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.19589, 4, -1.92289)
 shape = SubResource("BoxShape3D_kcym8")
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.37119, 4, -9.99371)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.37119, 4, -10.5808)
 shape = SubResource("BoxShape3D_3epfq")
 
 [node name="entity_spawner" parent="." instance=ExtResource("6_i25bw")]
