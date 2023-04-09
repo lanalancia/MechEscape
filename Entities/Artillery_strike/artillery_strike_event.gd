@@ -23,6 +23,7 @@ func _on_cooldown_timeout():
 
 
 func _on_step_2_timeout():
+	global_position = get_node("/root/Main_level").PLAYER.global_position
 	current_shot_idx += 1
 	if current_shot_idx == shoot_array.size():
 		$cooldown.wait_time = 30 + (randi()%8-10)
