@@ -1,10 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://bljjmly1tovk4"]
+[gd_scene load_steps=15 format=3 uid="uid://bljjmly1tovk4"]
 
 [ext_resource type="Script" path="res://chunks/base_chunk.gd" id="1_sohb2"]
 [ext_resource type="PackedScene" uid="uid://1rami4xbfxcq" path="res://chunks/chunk_spawner/chunk_spawner.tscn" id="2_kslys"]
 [ext_resource type="Material" uid="uid://d3kty78nggpna" path="res://materials/Surfaces/Concrete.tres" id="3_xp20p"]
 [ext_resource type="PackedScene" uid="uid://btfgffs76gg22" path="res://chunks/chunk_spawner/Player_detection_area.tscn" id="4_mblo8"]
 [ext_resource type="PackedScene" uid="uid://ctss3q7w3np4k" path="res://chunks/gates/falling_building.tscn" id="5_4mpg5"]
+[ext_resource type="LightmapGIData" uid="uid://cwbqs2ahvah1q" path="res://chunks/RuinedCity/city_chunk_4.lmbake" id="6_vcqfy"]
 [ext_resource type="PackedScene" uid="uid://clcn5hb3f7cvv" path="res://Entities/entity_spawner/entity_spawner.tscn" id="7_r1m65"]
 [ext_resource type="PackedScene" uid="uid://81innv3cd1w5" path="res://Entities/entity_spawner/spawnpoint.tscn" id="8_7fxix"]
 [ext_resource type="PackedScene" uid="uid://cx2lkrxnrd4ps" path="res://Entities/Troop/troop.tscn" id="9_4gjsf"]
@@ -180,19 +181,19 @@ skeleton = NodePath("")
 surface_material_override/0 = ExtResource("3_xp20p")
 
 [node name="House26" type="MeshInstance3D" parent="Geometry"]
-transform = Transform3D(0.402601, -2.02267, 3.23575, 0.413998, 13.3999, 0.447995, -3.60578, 1.31267, 0.412722, -13.5149, -2.00072, -23.5931)
+transform = Transform3D(1.22439, -0.803785, 3.0959, 0.28361, 13.5657, 0.114793, -3.42864, 0.835088, 1.11506, -13.5149, -2.00072, -23.5931)
 mesh = SubResource("BoxMesh_m8fuv")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("3_xp20p")
 
 [node name="House27" type="MeshInstance3D" parent="Geometry"]
-transform = Transform3D(0.402601, -2.02267, 3.23575, -0.651841, 13.203, 0.548609, -3.57046, -2.63847, 0.264704, -14.2998, -1.73261, -15.2963)
+transform = Transform3D(0.891458, 0.359749, 3.19178, -0.703508, 13.3568, 0.0716964, -3.47067, -2.61502, 0.805293, -15.6172, -1.73261, -14.7033)
 mesh = SubResource("BoxMesh_m8fuv")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("3_xp20p")
 
 [node name="House23" type="MeshInstance3D" parent="Geometry"]
-transform = Transform3D(1.0207, -7.13528, 2.32596, 0.5161, 6.91985, 2.56989, -3.40173, -1.09109, 1.0878, -5.48848, -3.93854, -23.8159)
+transform = Transform3D(1.0207, -7.13528, 2.32596, 0.5161, 6.91985, 2.56989, -3.40173, -1.09109, 1.0878, -5.48848, -2.91135, -23.8159)
 mesh = SubResource("BoxMesh_m8fuv")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("3_xp20p")
@@ -222,6 +223,7 @@ shape = SubResource("BoxShape3D_7p5n1")
 transform = Transform3D(-0.558544, 0, -4.88295e-08, 0, 0.558544, 0, 4.88295e-08, 0, -0.558544, 0, 0, 0.706706)
 
 [node name="LightmapGI" type="LightmapGI" parent="."]
+light_data = ExtResource("6_vcqfy")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="LightmapGI"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 20, -4)
