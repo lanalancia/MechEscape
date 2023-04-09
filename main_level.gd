@@ -28,7 +28,8 @@ func update_UI():
 	$UI/healthbar.scale = Vector2(1, 1) * screen_scale_factor
 	
 	$UI/healthbar/HP/hp_line.size.x = PLAYER.health
-	
+	if !PLAYER.alive:
+		$UI/TouchScreenButton.show()
 	pass
 
 func change_1root_scene_to(scene):
@@ -40,3 +41,8 @@ func change_1root_scene_to(scene):
 	PLAYER.global_position = $chunks.get_child(0).get_player_spawn().global_position
 	PLAYER.velocity *= 0
 	pass
+
+
+func _on_touch_screen_button_pressed():
+	get_tree().reload_current_scene()
+	pass # Replace with function body.
