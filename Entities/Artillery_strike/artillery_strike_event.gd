@@ -30,8 +30,14 @@ func _on_step_2_timeout():
 		$cooldown.start()
 		current_shot_idx = -1
 	else:
-		var shell = SHELL.instantiate()
-		shell.global_transform = shoot_array[current_shot_idx].global_transform
-		shell.damage_everyone = true
-		get_node("/root/Main_level").add_child(shell)
+		shoot_shell()
+		shoot_shell()
+		shoot_shell()
+		shoot_shell()
 		$step2.start()
+
+func shoot_shell():
+	var shell = SHELL.instantiate()
+	shell.global_transform = shoot_array.pick_random().global_transform
+	shell.damage_everyone = true
+	get_node("/root/Main_level").add_child(shell)
