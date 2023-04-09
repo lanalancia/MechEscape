@@ -69,14 +69,14 @@ func calculate_movement_direction():
 		if body.is_in_group("ENEMY") and body.is_in_group("walking"):
 			enemies.append(body)
 			var deltapos = Vector2(global_position.x, global_position.z) - Vector2(body.global_position.x, body.global_position.z) 
-			if deltapos.length() < 1.6:
-				movement_direction += deltapos * 3
+			if deltapos.length() < 3:
+				movement_direction += deltapos * 8
 			
 		if body.is_in_group("PLAYER") and body.alive:
 			var deltapos = Vector2(global_position.x, global_position.z) - Vector2(body.global_position.x, body.global_position.z) 
-			if deltapos.length() < 2.5:
-				movement_direction += deltapos * 0.5
-			elif deltapos.length() > 2.5:
+			if deltapos.length() < 3:
+				movement_direction += deltapos * 8
+			elif deltapos.length() > 3:
 				movement_direction += wander_direction
 	pass
 

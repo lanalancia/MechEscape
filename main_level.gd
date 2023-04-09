@@ -6,8 +6,6 @@ extends Node3D
 var points = -1
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	#change_root_scene_to(load("res://chunks/TestingPlayground/playground_1.tscn"))
-	#var newscene = preload("res://chunks/RuinedCity/City_chunk_0.tscn")
 	$chunks.add_child( initial_cnunk.instantiate() )
 	pass
 
