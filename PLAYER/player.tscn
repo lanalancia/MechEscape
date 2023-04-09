@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://PLAYER/player.gd" id="1_0akw1"]
 [ext_resource type="Material" uid="uid://bqm4blkw3ds81" path="res://materials/Surfaces/Military_green.tres" id="2_emn5d"]
 [ext_resource type="PackedScene" uid="uid://c0xi4ubm0c4p0" path="res://PLAYER/Shooter/shooter_pew_pew.tscn" id="2_j1t3u"]
-[ext_resource type="LightmapGIData" uid="uid://d2f0n6sqorxop" path="res://PLAYER/player.lmbake" id="2_k4den"]
+[ext_resource type="LightmapGIData" path="res://PLAYER/player.lmbake" id="2_k4den"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_mh2ws"]
 radius = 0.699772
@@ -710,7 +710,7 @@ mesh = SubResource("PrismMesh_2ao5i")
 surface_material_override/0 = SubResource("StandardMaterial3D_lf20s")
 
 [node name="shooter" parent="torso/handl" instance=ExtResource("2_j1t3u")]
-transform = Transform3D(0.996195, 0, -0.0871557, 0, 1, 0, 0.0871557, 0, 0.996195, 0, 0, -0.773716)
+transform = Transform3D(0.984808, 0, -0.173648, 0, 1, 0, 0.173648, 0, 0.984808, 0, 0, -0.773716)
 
 [node name="handr" type="Node3D" parent="torso"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.884498, 1.43214, 0.248811)
@@ -734,7 +734,7 @@ mesh = SubResource("PrismMesh_2ao5i")
 surface_material_override/0 = SubResource("StandardMaterial3D_lf20s")
 
 [node name="shooter" parent="torso/handr" instance=ExtResource("2_j1t3u")]
-transform = Transform3D(0.996195, 0, 0.0871557, 0, 1, 0, -0.0871557, 0, 0.996195, 0, 0, -0.773716)
+transform = Transform3D(0.984808, 0, 0.173648, 0, 1, 0, -0.173648, 0, 0.984808, 0, 0, -0.773716)
 
 [node name="shoulder_l" type="Node3D" parent="torso"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.245466, 1.64704, 0.259651)
