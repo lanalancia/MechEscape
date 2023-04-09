@@ -5,10 +5,10 @@
 [ext_resource type="Material" uid="uid://d3kty78nggpna" path="res://materials/Surfaces/Concrete.tres" id="3_xp20p"]
 [ext_resource type="PackedScene" uid="uid://btfgffs76gg22" path="res://chunks/chunk_spawner/Player_detection_area.tscn" id="4_mblo8"]
 [ext_resource type="PackedScene" uid="uid://ctss3q7w3np4k" path="res://chunks/gates/falling_building.tscn" id="5_4mpg5"]
-[ext_resource type="LightmapGIData" uid="uid://b30ur37yv18qw" path="res://chunks/RuinedCity/city_chunk_2.lmbake" id="6_oqf2p"]
 [ext_resource type="PackedScene" uid="uid://clcn5hb3f7cvv" path="res://Entities/entity_spawner/entity_spawner.tscn" id="7_r1m65"]
 [ext_resource type="PackedScene" uid="uid://81innv3cd1w5" path="res://Entities/entity_spawner/spawnpoint.tscn" id="8_7fxix"]
 [ext_resource type="PackedScene" uid="uid://cx2lkrxnrd4ps" path="res://Entities/Troop/troop.tscn" id="9_4gjsf"]
+[ext_resource type="PackedScene" uid="uid://c5lfer2dv76f0" path="res://Entities/bat/bat.tscn" id="10_utscf"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_m8fuv"]
 lightmap_size_hint = Vector2i(14, 21)
@@ -23,7 +23,7 @@ size = Vector3(1, 8.15641, 23)
 [sub_resource type="BoxShape3D" id="BoxShape3D_bhd4x"]
 size = Vector3(1, 8.15641, 11.0351)
 
-[node name="ruined_city_Lshape" type="Node3D"]
+[node name="Chunk" type="Node3D"]
 script = ExtResource("1_sohb2")
 GATES = NodePath("Falling_building")
 
@@ -36,7 +36,7 @@ spawnable_chunks = Array[int]([1, 2, 3, 4])
 [node name="Geometry" type="Node3D" parent="."]
 
 [node name="House" type="MeshInstance3D" parent="Geometry"]
-transform = Transform3D(3.61622, -0.0614542, 0.0127325, 0.0145811, 14.36, 0.239761, -0.0135979, -0.944833, 3.64317, -6.23117, -2.10251, -1.61526)
+transform = Transform3D(3.61622, -0.0614542, 0.0127325, 0.0145811, 14.36, 0.239761, -0.0135979, -0.944833, 3.64317, -5.43262, -2.10251, -1.61526)
 mesh = SubResource("BoxMesh_m8fuv")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("3_xp20p")
@@ -84,13 +84,13 @@ skeleton = NodePath("")
 surface_material_override/0 = ExtResource("3_xp20p")
 
 [node name="House12" type="MeshInstance3D" parent="Geometry"]
-transform = Transform3D(4.86275, -0.0886288, 0.0142258, 0.0241692, 19.1225, -0.753285, -0.0105061, 2.96939, 4.85148, -10.6072, 5.71049, -26.1663)
+transform = Transform3D(4.86275, -0.0886288, 0.0142258, 0.0250027, 18.7854, -1.17891, -0.00832994, 4.64702, 4.76597, -10.6072, 5.71049, -28.1514)
 mesh = SubResource("BoxMesh_m8fuv")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("3_xp20p")
 
 [node name="House2" type="MeshInstance3D" parent="Geometry"]
-transform = Transform3D(3.5431, -0.0633791, -0.614793, 0.0153742, 14.036, -0.00644577, 0.608856, 0.0143968, 3.57782, -6.28923, -4.48078, -10.2452)
+transform = Transform3D(4.75059, -0.0647742, -1.63933, 0.0214286, 14.0228, -0.00915224, 1.59364, 0.00453375, 4.88691, -7.14758, -4.48078, -10.1051)
 mesh = SubResource("BoxMesh_m8fuv")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("3_xp20p")
@@ -101,20 +101,14 @@ mesh = SubResource("BoxMesh_m8fuv")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("3_xp20p")
 
-[node name="House25" type="MeshInstance3D" parent="Geometry"]
-transform = Transform3D(3.27733, -0.0649643, -1.49206, 0.83978, 11.6303, 1.847, 1.21587, -7.85776, 2.7461, -16.2899, -4.48078, -11.9713)
-mesh = SubResource("BoxMesh_m8fuv")
-skeleton = NodePath("")
-surface_material_override/0 = ExtResource("3_xp20p")
-
 [node name="House28" type="MeshInstance3D" parent="Geometry"]
-transform = Transform3D(4.25077, -0.106858, -1.86462, -0.516439, 22.1685, -1.16353, 1.84571, 6.44896, 3.96876, -16.2899, -4.48078, -9.49474)
+transform = Transform3D(4.98453, -0.108108, -2.57828, -0.605586, 22.4279, -1.60886, 2.16431, 6.52442, 5.48776, -16.2899, -2.00686, -9.49474)
 mesh = SubResource("BoxMesh_m8fuv")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("3_xp20p")
 
 [node name="House5" type="MeshInstance3D" parent="Geometry"]
-transform = Transform3D(3.49796, 1.53609, -0.590507, -0.705057, 9.35344, -1.06798, 0.383599, 3.18443, 3.42176, -6.23347, 1.35703, -5.43959)
+transform = Transform3D(3.49796, 1.53609, -0.590507, -0.705057, 9.35344, -1.06798, 0.383599, 3.18443, 3.42176, -5.03913, 1.35703, -5.43959)
 mesh = SubResource("BoxMesh_m8fuv")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("3_xp20p")
@@ -132,13 +126,13 @@ skeleton = NodePath("")
 surface_material_override/0 = ExtResource("3_xp20p")
 
 [node name="House19" type="MeshInstance3D" parent="Geometry"]
-transform = Transform3D(-0.314295, -9.91526, -0.346152, 0.620427, -1.09321, 3.55606, -3.52083, 0.692467, 0.657534, 3.07278, -1.78171, -11.5329)
+transform = Transform3D(-0.314295, -9.91526, -0.346152, 0.620427, -1.09321, 3.55606, -3.52083, 0.692467, 0.657534, 3.07278, -1.38914, -11.5329)
 mesh = SubResource("BoxMesh_m8fuv")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("3_xp20p")
 
 [node name="House29" type="MeshInstance3D" parent="Geometry"]
-transform = Transform3D(-0.678323, -1.35661, -3.53317, -0.153586, -9.88267, 0.531081, -3.52083, 0.692467, 0.657534, -6.57035, -5.00256, -19.7922)
+transform = Transform3D(-0.695439, -3.38807, -3.34469, -0.0087253, -9.38235, 1.25634, -3.52083, 0.692467, 0.657534, -6.57035, -4.34672, -19.7922)
 mesh = SubResource("BoxMesh_m8fuv")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("3_xp20p")
@@ -161,38 +155,20 @@ mesh = SubResource("BoxMesh_m8fuv")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("3_xp20p")
 
-[node name="House30" type="MeshInstance3D" parent="Geometry"]
-transform = Transform3D(4.75013, -0.165418, 0.0164565, 0.0203141, 38.7367, -0.00837878, -0.0165293, 0.0693574, 4.71889, 14.9126, -0.412653, -22.3199)
-mesh = SubResource("BoxMesh_m8fuv")
-skeleton = NodePath("")
-surface_material_override/0 = ExtResource("3_xp20p")
-
-[node name="House31" type="MeshInstance3D" parent="Geometry"]
-transform = Transform3D(4.75013, -0.165418, 0.0164565, 0.0203141, 38.7367, -0.00837878, -0.0165293, 0.0693574, 4.71889, 1.17283, -5.96103, -34.5912)
-mesh = SubResource("BoxMesh_m8fuv")
-skeleton = NodePath("")
-surface_material_override/0 = ExtResource("3_xp20p")
-
 [node name="House14" type="MeshInstance3D" parent="Geometry"]
 transform = Transform3D(0.386239, -1.74883, 3.55544, 0.357475, 9.81285, 0.597302, -3.55007, 0.797838, 0.446969, 6.93613, -0.289725, -19.4744)
 mesh = SubResource("BoxMesh_m8fuv")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("3_xp20p")
 
-[node name="House32" type="MeshInstance3D" parent="Geometry"]
-transform = Transform3D(0.386239, -1.74883, 3.55544, 0.357475, 9.81285, 0.597302, -3.55007, 0.797838, 0.446969, 4.27851, -4.66235, -19.4744)
-mesh = SubResource("BoxMesh_m8fuv")
-skeleton = NodePath("")
-surface_material_override/0 = ExtResource("3_xp20p")
-
 [node name="House21" type="MeshInstance3D" parent="Geometry"]
-transform = Transform3D(0.386239, -1.74883, 3.55544, 0.357475, 9.81285, 0.597302, -3.55007, 0.797838, 0.446969, -0.118728, -0.289725, -25.4)
+transform = Transform3D(0.386239, -1.74883, 3.55544, 0.357475, 9.81285, 0.597302, -3.55007, 0.797838, 0.446969, -0.118728, -0.289725, -22.9214)
 mesh = SubResource("BoxMesh_m8fuv")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("3_xp20p")
 
 [node name="House24" type="MeshInstance3D" parent="Geometry"]
-transform = Transform3D(1.9244, -2.78032, 3.26659, 0.373673, 14.1936, 0.641977, -3.19854, -0.0146031, 2.04035, -3.63997, -0.289725, -25.7922)
+transform = Transform3D(1.9244, -2.78032, 3.26659, 0.373673, 14.1936, 0.641977, -3.19854, -0.0146031, 2.04035, -3.63997, -0.289725, -26.9005)
 mesh = SubResource("BoxMesh_m8fuv")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("3_xp20p")
@@ -204,25 +180,31 @@ skeleton = NodePath("")
 surface_material_override/0 = ExtResource("3_xp20p")
 
 [node name="House26" type="MeshInstance3D" parent="Geometry"]
-transform = Transform3D(0.463827, -0.594836, 3.26275, 0.550871, 13.4552, 0.0797958, -3.58002, 1.99334, 0.435, -13.8894, -2.00072, -23.744)
+transform = Transform3D(0.402601, -2.02267, 3.23575, 0.413998, 13.3999, 0.447995, -3.60578, 1.31267, 0.412722, -13.5149, -2.00072, -23.5931)
 mesh = SubResource("BoxMesh_m8fuv")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("3_xp20p")
 
 [node name="House27" type="MeshInstance3D" parent="Geometry"]
-transform = Transform3D(0.318143, -0.35987, 3.27891, -0.696972, 13.3522, 0.140682, -3.57046, -2.63847, 0.264704, -15.363, -1.73261, -14.7623)
+transform = Transform3D(0.402601, -2.02267, 3.23575, -0.651841, 13.203, 0.548609, -3.57046, -2.63847, 0.264704, -14.2998, -1.73261, -15.2963)
 mesh = SubResource("BoxMesh_m8fuv")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("3_xp20p")
 
 [node name="House23" type="MeshInstance3D" parent="Geometry"]
-transform = Transform3D(0.103004, -7.17399, 2.52856, 0.5161, 6.91985, 2.56989, -3.55007, 0.797838, 0.446969, -5.48848, -2.93854, -25.565)
+transform = Transform3D(1.0207, -7.13528, 2.32596, 0.5161, 6.91985, 2.56989, -3.40173, -1.09109, 1.0878, -5.48848, -3.93854, -23.8159)
 mesh = SubResource("BoxMesh_m8fuv")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("3_xp20p")
 
 [node name="House15" type="MeshInstance3D" parent="Geometry"]
-transform = Transform3D(3.58369, -0.0284392, 0.0126765, 0.0153258, 6.65975, -0.00645421, -0.0124704, 0.0119242, 3.63499, 5.5601, -0.412651, -22.0115)
+transform = Transform3D(3.58369, -0.0284392, 0.0126765, 0.0153258, 6.65975, -0.00645421, -0.0124704, 0.0119242, 3.63499, 5.72758, -0.412651, -22.0115)
+mesh = SubResource("BoxMesh_m8fuv")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("3_xp20p")
+
+[node name="House30" type="MeshInstance3D" parent="Geometry"]
+transform = Transform3D(3.58369, -0.0284392, 0.0126765, 0.0153258, 6.65975, -0.00645421, -0.0124704, 0.0119242, 3.63499, 3.8695, -2.19188, -23.0275)
 mesh = SubResource("BoxMesh_m8fuv")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("3_xp20p")
@@ -233,14 +215,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.129426, 0.734338, -6.87016)
 [node name="Player_detection_area" parent="." instance=ExtResource("4_mblo8")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player_detection_area"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -6.03505)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -4.29553)
 shape = SubResource("BoxShape3D_7p5n1")
 
 [node name="Falling_building" parent="." instance=ExtResource("5_4mpg5")]
-transform = Transform3D(-0.558544, 0, -4.88295e-08, 0, 0.558544, 0, 4.88295e-08, 0, -0.558544, 0, 0, 0.464247)
+transform = Transform3D(-0.558544, 0, -4.88295e-08, 0, 0.558544, 0, 4.88295e-08, 0, -0.558544, 0, 0, 0.706706)
 
 [node name="LightmapGI" type="LightmapGI" parent="."]
-light_data = ExtResource("6_oqf2p")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="LightmapGI"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 20, -4)
@@ -259,23 +240,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1.70698, -5.89757)
 shape = SubResource("BoxShape3D_bhd4x")
 
 [node name="CollisionShape3D4" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(0.0328756, 0, 0.99946, 0, 1, 0, -0.99946, 0, 0.0328756, -8.0527, 1.70698, -24.1003)
+transform = Transform3D(0.208338, 0, 0.978057, 0, 1, 0, -0.978057, 0, 0.208338, -8.0527, 1.70698, -22.7112)
 shape = SubResource("BoxShape3D_bhd4x")
 
 [node name="CollisionShape3D6" type="CollisionShape3D" parent="StaticBody3D"]
 transform = Transform3D(-0.971168, 0, 0.238398, 0, 1, 0, -0.238398, 0, -0.971168, -12.2398, 1.70698, -26.3949)
 shape = SubResource("BoxShape3D_bhd4x")
 
-[node name="CollisionShape3D13" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(-0.971168, 0, 0.238398, 0, 1, 0, -0.238398, 0, -0.971168, -11.6624, 1.70698, -26.2723)
-shape = SubResource("BoxShape3D_bhd4x")
-
 [node name="CollisionShape3D7" type="CollisionShape3D" parent="StaticBody3D"]
 transform = Transform3D(-0.971168, 0, 0.238398, 0, 1, 0, -0.238398, 0, -0.971168, -15.5609, 1.70698, -11.8537)
-shape = SubResource("BoxShape3D_bhd4x")
-
-[node name="CollisionShape3D12" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(-0.971168, 0, 0.238398, 0, 1, 0, -0.238398, 0, -0.971168, -15.0406, 1.70698, -11.6251)
 shape = SubResource("BoxShape3D_bhd4x")
 
 [node name="CollisionShape3D8" type="CollisionShape3D" parent="StaticBody3D"]
@@ -295,7 +268,7 @@ transform = Transform3D(-0.971168, 0, 0.238398, 0, 1, 0, -0.238398, 0, -0.971168
 shape = SubResource("BoxShape3D_bhd4x")
 
 [node name="CollisionShape3D5" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(0.0227745, 0, 0.999741, 0, 1, 0, -0.999741, 0, 0.0227745, 2.38427, 1.70698, -23.8153)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.38427, 1.70698, -21.4918)
 shape = SubResource("BoxShape3D_bhd4x")
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="StaticBody3D"]
@@ -303,36 +276,56 @@ transform = Transform3D(0.295908, 0, 0.955216, 0, 1, 0, -0.955216, 0, 0.295908, 
 shape = SubResource("BoxShape3D_bhd4x")
 
 [node name="entity_spawner" parent="." instance=ExtResource("7_r1m65")]
-chance_empty = 0.19
+chance_empty = 0.15
 
 [node name="spawnpoint" parent="entity_spawner" instance=ExtResource("8_7fxix")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.33053, -6.52506)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.35444, 0, -15.7132)
 spawnable_entities = Array[PackedScene]([ExtResource("9_4gjsf")])
 
 [node name="spawnpoint2" parent="entity_spawner" instance=ExtResource("8_7fxix")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.33053, -8.00776)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.31473, 0, -15.7132)
 spawnable_entities = Array[PackedScene]([ExtResource("9_4gjsf")])
 
-[node name="spawnpoint3" parent="entity_spawner" instance=ExtResource("8_7fxix")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.33053, -9.52661)
+[node name="spawnpoint12" parent="entity_spawner" instance=ExtResource("8_7fxix")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.04448, 0, -16.9422)
 spawnable_entities = Array[PackedScene]([ExtResource("9_4gjsf")])
 
-[node name="spawnpoint4" parent="entity_spawner" instance=ExtResource("8_7fxix")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.33053, -11.4995)
-spawnable_entities = Array[PackedScene]([ExtResource("9_4gjsf")])
-
-[node name="spawnpoint5" parent="entity_spawner" instance=ExtResource("8_7fxix")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.33053, -13.7697)
-spawnable_entities = Array[PackedScene]([ExtResource("9_4gjsf")])
-
-[node name="spawnpoint6" parent="entity_spawner" instance=ExtResource("8_7fxix")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.33053, -15.6995)
-spawnable_entities = Array[PackedScene]([ExtResource("9_4gjsf")])
-
-[node name="spawnpoint7" parent="entity_spawner" instance=ExtResource("8_7fxix")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.33053, -17.422)
+[node name="spawnpoint13" parent="entity_spawner" instance=ExtResource("8_7fxix")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.00477, 0, -16.9422)
 spawnable_entities = Array[PackedScene]([ExtResource("9_4gjsf")])
 
 [node name="spawnpoint8" parent="entity_spawner" instance=ExtResource("8_7fxix")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.33053, -19.3467)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.64273, 0, -19.2723)
 spawnable_entities = Array[PackedScene]([ExtResource("9_4gjsf")])
+
+[node name="spawnpoint9" parent="entity_spawner" instance=ExtResource("8_7fxix")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.60302, 0, -19.2723)
+spawnable_entities = Array[PackedScene]([ExtResource("9_4gjsf")])
+
+[node name="spawnpoint10" parent="entity_spawner" instance=ExtResource("8_7fxix")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.64273, 0, -18.4672)
+spawnable_entities = Array[PackedScene]([ExtResource("9_4gjsf")])
+
+[node name="spawnpoint11" parent="entity_spawner" instance=ExtResource("8_7fxix")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.60302, 0, -18.4672)
+spawnable_entities = Array[PackedScene]([ExtResource("10_utscf")])
+
+[node name="spawnpoint3" parent="entity_spawner" instance=ExtResource("8_7fxix")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7616, 0, -10.3596)
+spawnable_entities = Array[PackedScene]([ExtResource("9_4gjsf"), ExtResource("10_utscf")])
+
+[node name="spawnpoint4" parent="entity_spawner" instance=ExtResource("8_7fxix")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.36725, 0, -15.4372)
+spawnable_entities = Array[PackedScene]([ExtResource("10_utscf"), ExtResource("10_utscf"), ExtResource("9_4gjsf")])
+
+[node name="spawnpoint5" parent="entity_spawner" instance=ExtResource("8_7fxix")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.47412, 0, -17.8306)
+spawnable_entities = Array[PackedScene]([ExtResource("10_utscf")])
+
+[node name="spawnpoint6" parent="entity_spawner" instance=ExtResource("8_7fxix")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.18538, 0, -3.16905)
+spawnable_entities = Array[PackedScene]([ExtResource("9_4gjsf"), ExtResource("10_utscf")])
+
+[node name="spawnpoint7" parent="entity_spawner" instance=ExtResource("8_7fxix")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.26219, 0, -4.2012)
+spawnable_entities = Array[PackedScene]([ExtResource("10_utscf")])
