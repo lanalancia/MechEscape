@@ -26,11 +26,14 @@ func _process(delta):
 func update_UI():
 	var screen_scale = $UI.get_viewport_rect().size / Vector2(1152, 648) #Vector2(1152, 648)
 	var screen_scale_factor = (screen_scale.x + screen_scale.y) / 2
-	$UI/healthbar.scale = Vector2(1, 1) * screen_scale_factor
 	
+	$UI/healthbar.scale = Vector2(1, 1) * screen_scale_factor
 	$UI/healthbar/HP/hp_line.size.x = PLAYER.health
+	$UI/Retry.scale = Vector2(1, 1) * screen_scale_factor
+	$UI/Retry.position.x = 469 * screen_scale_factor
+	$UI/Retry.position.y = 121 * screen_scale_factor
 	if !PLAYER.alive:
-		$UI/TouchScreenButton.show()
+		$UI/Retry.show()
 	pass
 
 func change_1root_scene_to(scene):
