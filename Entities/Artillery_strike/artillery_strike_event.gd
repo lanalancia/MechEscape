@@ -25,8 +25,8 @@ func _on_cooldown_timeout():
 func _on_step_2_timeout():
 	current_shot_idx += 1
 	if current_shot_idx == shoot_array.size():
-		#$cooldown.wait_time = 30 + (randi()%8-10)
-		$cooldown.wait_time = 2
+		$cooldown.wait_time = 30 + (randi()%8-10)
+		#$cooldown.wait_time = 2
 		$cooldown.start()
 		current_shot_idx = -1
 	else:
