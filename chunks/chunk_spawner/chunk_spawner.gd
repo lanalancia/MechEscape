@@ -13,4 +13,5 @@ func spawn_chunk():
 	new_chunk.global_transform = global_transform
 	new_chunk.prev_chunk = get_parent().get_parent()
 	get_parent().get_parent().get_parent().add_child(new_chunk)
+	get_node("/root/Main_level").points += 1
 	pass

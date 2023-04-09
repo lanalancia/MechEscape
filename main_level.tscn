@@ -74,6 +74,15 @@ offset_bottom = 23.0
 scale = Vector2(3.77171, 3.77171)
 text = "RETRY"
 
+[node name="rooms" type="Label" parent="UI/Retry"]
+offset_left = -107.0
+offset_top = 91.0
+offset_right = -4.99997
+offset_bottom = 117.0
+scale = Vector2(3.77171, 3.77171)
+text = "Total rooms: "
+horizontal_alignment = 1
+
 [node name="chunks" type="Node3D" parent="."]
 
 [node name="PLAYER" parent="." instance=ExtResource("3_mjqbl")]
