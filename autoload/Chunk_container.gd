@@ -10,6 +10,7 @@ func _ready():
 	chunk_array.append(preload("res://chunks/RuinedCity/city_thin_0.tscn"))     #4
 	chunk_array.append(preload("res://chunks/RuinedCity/city_thin_1.tscn"))     #5
 	chunk_array.append(preload("res://chunks/RuinedCity/city_thin_2.tscn"))     #6
+	chunk_array.append(preload("res://chunks/RuinedCity/city_chunk_4.tscn"))    #7
 
 func get_chunk(idx):
 	return chunk_array[idx]

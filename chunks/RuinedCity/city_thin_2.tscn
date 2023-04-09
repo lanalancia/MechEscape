@@ -38,8 +38,8 @@ script = ExtResource("1_mb8jg")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.18531, 0, -6.83022)
 
 [node name="chunk_spawner" parent="Attach_points" instance=ExtResource("2_ilhp6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.39836, 0, -9.76949)
-spawnable_chunks = Array[int]([1, 1, 2, 2, 3])
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.39836, 0, -12.1584)
+spawnable_chunks = Array[int]([1, 1, 2, 2, 3, 7])
 
 [node name="Geometry" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.18531, 0, -6.83022)
